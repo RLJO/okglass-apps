@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend_theme" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link href="/ecommerce_custom/static/src/scss/owl.css" rel="stylesheet"/>
+            <link href="/ecommerce_custom/static/src/scss/style.scss" rel="stylesheet"/>
+            <script src="/ecommerce_custom/static/src/js/owl.js"/>
+            <script src="/ecommerce_custom/static/src/js/custom.js"/>
+        </xpath>
+    </template>
+
+</odoo>

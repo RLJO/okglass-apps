@@ -1,0 +1,1258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="website_sale.product" name="Product">
+
+        <style>
+            p.text-muted{
+                display:none !important;
+            }
+        </style>
+
+        <t t-set="first_possible_combination" t-value="product._get_first_possible_combination()"/>
+        <t t-set="combination_info"
+           t-value="product._get_combination_info(first_possible_combination, add_qty=add_qty or 1, pricelist=pricelist)"/>
+        <t t-set="product_variant" t-value="product.env['product.product'].browse(combination_info['product_id'])"/>
+        <t t-set="product_tmpl" t-value="product"/>
+        <t t-call="website.layout">
+            <t t-set="additional_title" t-value="product.name"/>
+            <div itemscope="itemscope" itemtype="http://schema.org/Product" id="wrap" class="js_sale">
+                <section
+                        t-attf-class="container py-2 oe_website_sale #{'discount' if combination_info['has_discounted_price'] else ''}"
+                        id="product_detail">
+                    <div class="row mx-4">
+                        <div class="col-md-4">
+                            <ol class="breadcrumb bg-white">
+                                <li class="breadcrumb-item">
+                                    <a t-att-href="keep(category=0)">Products</a>
+                                </li>
+                                <li t-if="category" class="breadcrumb-item">
+                                    <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)"
+                                       t-field="category.name"/>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    <span t-field="product.name"/>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="col-md-8 d-none">
+                            <div class="form-inline justify-content-end">
+                                <t t-call="website_sale.search"/>
+                                <t t-call="website_sale.pricelist_list">
+                                    <t t-set="_classes">ml-2</t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT DETAILS -->
+                    <div class="row mx-4">
+                        <div class="col-md-6">
+                            <t t-call="website_sale.shop_product_carousel"/>
+                        </div>
+                        <div class="col-md-6" id="product_details">
+                            <div class="bg-100 p-4">
+                                <h1 itemprop="name" t-field="product.name">Product Name</h1>
+                                <span itemprop="url" style="display:none;"
+                                      t-esc="'%sshop/product/%s' % (request.httprequest.url_root, slug(product))"/>
+                                <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update"
+                                      method="POST">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="js_product js_main_product">
+                                        <t t-placeholder="select">
+                                            <input type="hidden" class="product_id" name="product_id"
+                                                   t-att-value="product_variant.id"/>
+                                            <input type="hidden" class="product_template_id" name="product_template_id"
+                                                   t-att-value="product.id"/>
+                                            <t t-if="combination" t-call="sale.variants">
+                                                <t t-set="ul_class" t-value="'flex-column'"/>
+                                                <t t-set="parent_combination" t-value="None"/>
+                                            </t>
+                                            <t t-else="">
+                                                <ul class="d-none js_add_cart_variants"
+                                                    t-att-data-attribute_exclusions="{'exclusions: []'}"/>
+                                            </t>
+                                        </t>
+                                        <t t-call="website_sale.product_price"/>
+
+                                        <div class="row mt8">
+                                             <div class="col-md-12 col-12">
+                                                 <span class="mt8" t-field="product.description_sale"/>
+                                             </div>
+                                            <div class="col-md-6 col-12">
+                                                <p class="span_delivery">
+                                                    <t t-raw="product.description_1"/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <p class="span_delivery">
+                                                    <t t-raw="product.description_2"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p t-if="True" class="css_not_available_msg alert alert-warning">This
+                                            combination does not exist.</p>
+                                        <a role="button" id="add_to_cart"
+                                           class="btn btn-primary btn-lg mt16 js_check_product a-submit d-block d-sm-inline-block"
+                                           href="#"><i class="fa fa-shopping-cart"/> Add to Cart</a>
+                                        <div id="product_option_block"/>
+                                    </div>
+                                </form>
+                                <p t-elif="not product.active" class="alert alert-warning">This product is no longer
+                                    available.
+                                </p>
+                                <p t-else="" class="alert alert-warning">This product has no valid combination.</p>
+                                <hr t-if="product.description_sale" class="d-none"/>
+                                <div class="o_not_editable d-none">
+                                    <p t-field="product.description_sale" class="text-muted"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT SIZE TABLES -->
+                    <div class="row mt32 mx-4">
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <t t-foreach="product.size_table_ids" t-as="size">
+                                        <tr>
+                                            <th>
+                                                <t t-esc="size.title"/>
+                                            </th>
+                                            <td>
+                                                <t t-esc="size.description"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <t t-foreach="product.variant_detail_ids" t-as="variants">
+                                        <tr>
+                                            <th>
+                                                <t t-esc="variants.title"/>
+                                            </th>
+                                            <td>
+                                                <t t-esc="variants.description"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT CONFIGURATION -->
+                    <form id="cart_form" action="/shop/cart/update" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input name="product_id" t-att-value="product.product_variant_id.id" type="hidden"/>
+                        <input name="backend_details" type="hidden" value="Dharmesh"/>
+
+                     <div class="row pt16 mx-4">
+                        <div class="col-md-12 ml-3">
+                            <div class="row pt16" style="border-top:1px solid #f1f1f1;">
+                                <span class="font-weight-bold pb16">
+                                    Format
+                                </span>
+                            </div>
+
+                            <!-- MENU OF THE CONFIGURATION -->
+                            <div class="row pr-3">
+                                <t t-if="product.is_rectangle_bool">
+                                    <div class="col-md-1 col-2 format_img active format_shape_1">
+                                        <img src="/custom_product_configuration/static/src/img/1.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_ellipse_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_2">
+                                        <img src="/custom_product_configuration/static/src/img/2.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_triangle_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_3">
+                                        <img src="/custom_product_configuration/static/src/img/3.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_spec_rectangle_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_4">
+                                        <img src="/custom_product_configuration/static/src/img/4.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_parallelogram_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_5">
+                                        <img src="/custom_product_configuration/static/src/img/5.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_trapezium_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_6">
+                                        <img src="/custom_product_configuration/static/src/img/6.svg"/>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_cropped_rectangle_bool">
+                                    <div class="col-md-1 col-2 format_img format_shape_7">
+                                        <img src="/custom_product_configuration/static/src/img/7.svg"/>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- DATA OF THE CONFIGURATION -->
+                            <div class="all_shape_format pt32" style="margin-left: -12px;">
+                                <t t-if="product.is_rectangle_bool">
+                                    <div class="f_shape_1">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" id="width_shape_1" class="form-control shape_input" name="width_shape_1"
+                                                       placeholder="mm" value="200"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" id="height_shape_1" class="form-control shape_input"
+                                                       name="height_shape_1"
+                                                       placeholder="mm" value="300"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_shape_1" placeholder="kg" style="width: 75%;" readonly="readonly"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_rectangle_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                        <div class="row pt32 pr-3 d-none" style="margin-left:0px;">
+                                            <div class="col-md-1 text-center format_simg mm_active format_shape_1">
+                                                4 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                5 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                6 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                7 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                10 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                12 mm
+                                            </div>
+                                            <div class="col-md-1 text-center format_simg">
+                                                14 mm
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_ellipse_bool">
+                                    <div class="f_shape_2" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_shape_2" id="width_shape_2"
+                                                       placeholder="mm" value="200"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_shape_2" id="height_shape_2"
+                                                       placeholder="mm" value="300"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_eshape_1" placeholder="kg" style="width: 75%;"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_ellipse_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_triangle_bool">
+                                    <div class="f_shape_3" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_tshape_1"
+                                                       placeholder="mm" value="200"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_tshape_1"
+                                                       placeholder="mm" value="300"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_tshape_1" placeholder="kg" style="width: 75%;" />
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_triangle_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_spec_rectangle_bool">
+                                    <div class="f_shape_4" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_srshape_1" id="width_shape_4"
+                                                       placeholder="mm" value="200"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_srshape_1" id="height_shape_4"
+                                                       placeholder="mm" value="300"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height 1
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_srshape_2" id="height1_shape_4"
+                                                       placeholder="mm" value="200"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_srshape_1" placeholder="kg" style="width: 75%;" readonly="readonly"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_spec_rectangle_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_parallelogram_bool">
+                                    <div class="f_shape_5" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_pshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_pshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width 1
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_pshape_2"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_pshape_1" placeholder="kg" style="width: 75%;"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_parallelogram_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_trapezium_bool">
+                                    <div class="f_shape_6" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_trshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_trshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width 1
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_trshape_2"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width 2
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_trshape_3"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_trshape_1" placeholder="kg" style="width: 75%;"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_trapezium_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-if="product.is_cropped_rectangle_bool">
+                                    <div class="f_shape_7" style="display:none;">
+                                        <div class="row pb32">
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_crshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_crshape_1"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Height 1
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="height_crshape_2"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Width 1
+                                                </label>
+                                                <input type="text" class="form-control shape_input"
+                                                       name="width_crshape_2"
+                                                       placeholder="mm"/>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><span class="text-danger">*</span>Weight
+                                                </label>
+                                                <input type="text" class="form-control shape_input bg-100"
+                                                       name="weight_crshape_1" placeholder="kg" style="width: 75%;"/>
+                                            </div>
+                                        </div>
+                                        <div clas="row">
+                                            <img t-attf-src="/web/image/product.template/#{product.id}/is_cropped_rectangle_img"
+                                                 style="height: 300px;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                     <div class="row d-none mx-4">
+                        <div class="col-lg-12 collapse multi-collapse show" id="cfg_step_configure_product">
+
+                            <!-- ATTRIBUTE 2 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_2"
+                                   role="button" aria-expanded="false"
+                                   >Glass art
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_2">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                        <label class="btn btn-default"> <!-- style="width: auto;" -->
+                                                <div id="form_control" class="form-control col-xs-12"
+                                                     style="border-color: white;"> <!--height: auto; -->
+                                                    <ul class="ul_image" style="display: flex;">
+                                                        <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a2_1.png"
+                                                                 style="width: 162px;"/>
+                                                            <span class="large">
+                                                                <img class="img-rounded img-responsive img-center mt8"
+                                                                     src="/custom_product_configuration/static/src/img/a2_1.png"
+                                                                     style="width: 260;  border-style: solid; border-color: black;"/>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <input checked="checked" type="radio" name="attr_2" id="attr_2" value="normal" class="config_attribute collapse show">
+                                                    </input>
+                                                    <div class="mt8">
+                                                        <strong>Normal</strong>
+                                                    </div>
+                                                </div>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a2_2.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a2_2.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_2" id="attr_2" value="optiwhite" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Optiwhite</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                            </div>
+                                            <div class="col-md-6 text-left">
+                                                 <p class="pt24 font-weight-bold mb0">Glasart*</p>
+                                                 <p class="font-weight-bold mb0">Wählen Sie zwischen der Glasfarbe „Normal (Grünstich)“ und „Optiwhite“</p>
+                                                 <p class="font-weight-bold mb0">Bei dem Designglas „Optiwhite“ handelt es sich um ein Glas mit reduziertem Grünanteil (auch „Weissglas“ genannt). Es zeichnet sich durch besondere Klarheit, hellere Kanten und eine verbesserte Lichtdurchlässigkeit aus.</p>
+                                                 <p class="font-weight-bold mb0">Optiwhite wird dort angewendet, wo hochwertige Optik gefragt ist.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 3 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_3"
+                                   role="button" aria-expanded="false"
+                                   >Beschichtung
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_3">
+                                    <div class="">
+                                         <div class="row">
+                                            <div class="col-md-12 ml-3 pt16">
+                                                <p class="font-weight-bold mb0">Cleantec Beschichtung*</p>
+                                                <p class="font-weight-bold mb0">Wählen Sie optional unsere Schmutz- und Wasserabweisende CLEANTEC Beschichtung.</p>
+                                                <p class="font-weight-bold mb0">Diese nicht sichtbare, mikroskopische Veredelung erleichtert das Reinigen und vermindert das Haften von Schmutz oder Kalk. Die Beschichtung kann einseitig oder beidseitig aufgebracht werden.</p>
+                                            </div>
+                                         </div>
+                                        <label class="btn btn-default"> <!-- style="width: auto;" -->
+                                                <div id="form_control" class="form-control col-xs-12"
+                                                     style="border-color: white;"> <!--height: auto; -->
+                                                    <ul class="ul_image" style="display: flex;">
+                                                        <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a3_1.png"
+                                                                 style="width: 162px;"/>
+                                                            <span class="large">
+                                                                <img class="img-rounded img-responsive img-center mt8"
+                                                                     src="/custom_product_configuration/static/src/img/a3_1.png"
+                                                                     style="width: 260;  border-style: solid; border-color: black;"/>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <input type="radio" checked="checked" name="attr_3" id="attr_3" value="keine" class="config_attribute collapse show">
+                                                    </input>
+                                                    <div class="mt8">
+                                                        <strong>Keine</strong>
+                                                    </div>
+                                                </div>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a3_2.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a3_2.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_3" id="attr_3" value="einseitig" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Einseitig</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a3_3.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a3_3.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_3" id="attr_3" value="beidseitig" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Beidseitig</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 4 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_4"
+                                   role="button" aria-expanded="false"
+                                   >Kantenbearbeitung
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_4">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-12 ml-3 pt16">
+                                                <p class="font-weight-bold mb0">Kantenbearbeitung*</p>
+                                                <p class="font-weight-bold mb0">Wählen Sie die Art der Kantenbearbeitung aus:</p>
+                                                <p class="font-weight-bold mb0">Geschnittene Kanten sind nicht geschliffen (wahlweise gesäumt=entgraten der Kante), geeignet für Gläser welche in ein Rahmenprofil eingebaut werden und deren Kanten nicht sichtbar sind. Verschiedene Profile können Sie bei uns in der Kategorie Zubehör finden. Bei allen sichtbaren Kanten empfehlen wir eine glänzend oder matt polierte Kante.</p>
+                                                <p class="font-weight-bold mb0">Beim Zuschnitt (Schnittkante) der Basisgläser können in der Glaskante Schneidspuren, Ausmuschelungen, Kantenbeschädigungen oder Über- bzw. Unterbruch entstehen. Durch diese Beschädigungen erhöht sich das Bruchrisiko insbesondere bei großformatigen und schweren Glasscheiben beim Transport und bei der Montage. Aus diesem Grund empfehlen wir die Kanten mindestens gesäumt auszuführen.</p>
+                                                <p class="font-weight-bold mb0">Wenn Sie nicht wissen welche für Sie am besten geeignet ist, können Sie hier nachlesen und entscheiden welche Ihren Vorstellungen entspricht.</p>
+                                            </div>
+                                         </div>
+                                        <label class="btn btn-default"> <!-- style="width: auto;" -->
+                                                <div id="form_control" class="form-control col-xs-12"
+                                                     style="border-color: white;"> <!--height: auto; -->
+                                                    <ul class="ul_image" style="display: flex;">
+                                                        <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a4_1.png"
+                                                                 style="width: 162px;"/>
+                                                            <span class="large">
+                                                                <img class="img-rounded img-responsive img-center mt8"
+                                                                     src="/custom_product_configuration/static/src/img/a4_1.png"
+                                                                     style="width: 260;  border-style: solid; border-color: black;"/>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    <input type="radio" checked="checked" name="attr_4" id="attr_4" value="nicht" class="config_attribute collapse show">
+                                                    </input>
+                                                    <div class="mt8">
+                                                        <strong>Schnittkante - nicht gesäumt</strong>
+                                                    </div>
+                                                </div>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a4_2.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a4_2.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_4" id="attr_4" value="gesaumt" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Schnittkante - gesäumt</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a4_3.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a4_3.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_4" id="attr_4" value="polierte" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Polierte Kante</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                         <label class="btn btn-default">
+                                            <div id="form_control" class="form-control col-xs-12"
+                                                 style="border-color: white;"> <!--height: auto; -->
+                                                <ul class="ul_image" style="display: flex;">
+                                                    <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                        <img class="img-rounded img-responsive img-center mt8"
+                                                             src="/custom_product_configuration/static/src/img/a4_3.png"
+                                                             style="width: 162px;"/>
+                                                        <span class="large">
+                                                            <img class="img-rounded img-responsive img-center mt8"
+                                                                 src="/custom_product_configuration/static/src/img/a4_3.png"
+                                                                 style="width: 260;  border-style: solid; border-color: black;"/>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <input type="radio" name="attr_4" id="attr_4" value="geschliffen" class="config_attribute collapse show">
+                                                </input>
+                                                <div class="mt8">
+                                                    <strong>Matt geschliffen</strong>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 5 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_5"
+                                   role="button" aria-expanded="false"
+                                   >Bohrungen
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_5">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="btn btn-default"> <!-- style="width: auto;" -->
+                                                    <div id="form_control" class="form-control col-xs-12"
+                                                         style="border-color: white;"> <!--height: auto; -->
+                                                        <ul class="ul_image" style="display: flex;">
+                                                            <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                                <img class="img-rounded img-responsive img-center mt8"
+                                                                     src="/custom_product_configuration/static/src/img/a5_1.png"
+                                                                     style="width: 162px;"/>
+                                                                <span class="large">
+                                                                    <img class="img-rounded img-responsive img-center mt8"
+                                                                         src="/custom_product_configuration/static/src/img/a5_1.png"
+                                                                         style="width: 260;  border-style: solid; border-color: black;"/>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                        <select class="form-control" id="attr_2" name="attr_5">
+                                                            <option value="20" selected="selected">0 - 20</option>
+                                                            <option value="40">21 - 40</option>
+                                                            <option value="60">41 - 60</option>
+                                                          </select>
+                                                    </div>
+                                            </label>
+                                            </div>
+                                            <div class="col-md-9 text-left">
+                                               <p class="pt24 font-weight-bold mb0">Lochbohrungen</p>
+                                                <p class="font-weight-bold mb0">Bitte geben Sie die gewünschte Anzahl der Bohrungen an. Der Durchmesser der Bohrung muss mindestens gleich der Glasdicke sein.</p>
+                                                <p class="font-weight-bold mb0">Der Bohrdurchmesser soll mindestens 4mm größer sein als der Durchmesser der Schraube.</p>
+                                                <p class="font-weight-bold mb0">Bitte laden Sie für die genaue Positionierung und Größe des Ausschnitts Ihre bemaßte Zeichnung unter dem Punkt „Skizze“ hoch. </p>
+                                                <p class="font-weight-bold mb0">HINWEIS: Ein Kontakt zwischen Glas und Schraube ist durch spezielle Hülsen zu verhindern. Die Hülsen finden Sie bei uns im Shop im Bereich Zubehör.</p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 11 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_11"
+                                   role="button" aria-expanded="false"
+                                   >Steckdosen
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_11">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_11" name="attr_11" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 6 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_6"
+                                   role="button" aria-expanded="false"
+                                   >Eckenrundung
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_6">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="btn btn-default"> <!-- style="width: auto;" -->
+                                                    <div id="form_control" class="form-control col-xs-12"
+                                                         style="border-color: white;"> <!--height: auto; -->
+                                                        <ul class="ul_image" style="display: flex;">
+                                                            <li style="list-style-type: none; padding: 10px; position: relative;">
+                                                                <img class="img-rounded img-responsive img-center mt8"
+                                                                     src="/custom_product_configuration/static/src/img/a6_1.png"
+                                                                     style="width: 162px;"/>
+                                                                <span class="large">
+                                                                    <img class="img-rounded img-responsive img-center mt8"
+                                                                         src="/custom_product_configuration/static/src/img/a6_1.png"
+                                                                         style="width: 260;  border-style: solid; border-color: black;"/>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                            </label>
+                                            </div>
+                                            <div class="col-md-9 text-left">
+                                               <p class="pt24 font-weight-bold mb0">Radius von Eckenrundung*</p>
+                                                <p class="font-weight-bold mb0">Wählen Sie aus, ob Sie eine Eckenrundung wünschen und wenn ja, wie groß der Radius ist.</p>
+                                                <p class="font-weight-bold mb0">Bitte geben Sie die genauen Maße für alle 4 Rundungen an.</p>
+                                                <p class="font-weight-bold mb0">Für die genaue Positionierung des Ausschnitts laden Sie Ihre bemaßte Zeichnung unter dem Punkt „Skizze“ hoch.</p>
+                                                <div class="row">
+                                                    <div class="col-md-4 pt16 text-left">
+                                                         <select class="form-control" id="attr_6" name="attr_6">
+                                                            <option value="attr_61" selected="selected">Eckrundung 10-20</option>
+                                                            <option value="attr_62">Eckrundung über 20mm</option>
+                                                          </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 7 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_7"
+                                   role="button" aria-expanded="false"
+                                   >Eckausschintte
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_7">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                               <select class="form-control" id="attr_7" name="attr_7">
+                                                            <option value="attr_71" selected="selected">Small</option>
+                                                            <option value="attr_72">Big</option>
+                                                          </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 8 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_8"
+                                   role="button" aria-expanded="false"
+                                   >Randausschnitte
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_8">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <select class="form-control" id="attr_8" name="attr_8">
+                                                    <option value="attr_81" selected="selected">Klein</option>
+                                                    <option value="attr_82">Gross</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 12 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_12"
+                                   role="button" aria-expanded="false"
+                                   >Eckenrundung anzhal
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_12">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_12" name="attr_12" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 13 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_13"
+                                   role="button" aria-expanded="false"
+                                   >Randausschnitte anzhal
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_13">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_13" name="attr_13" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 14 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_14"
+                                   role="button" aria-expanded="false"
+                                   >Steckdosen Anzahl
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_14">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_14" name="attr_14" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 15 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_15"
+                                   role="button" aria-expanded="false"
+                                   >Eckausschnitte anzhal
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_15">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_15" name="attr_15" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 9 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_9"
+                                   role="button" aria-expanded="false"
+                                   >Flächenauschnitte
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_9">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <select class="form-control" id="attr_8" name="attr_8">
+                                                    <option value="attr_91" selected="selected">Rundig</option>
+                                                    <option value="attr_92">Eckig</option>
+                                                    <option value="attr_93">Klein (bis 250mm)</option>
+                                                    <option value="attr_94">Grösse (über 250mm)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 16 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_16"
+                                   role="button" aria-expanded="false"
+                                   >Flächenauschnitte anzhal
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_16">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_16" name="attr_16" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 10 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_10"
+                                   role="button" aria-expanded="false"
+                                   >Glasdicke
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_10">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <select class="form-control" id="attr_10" name="attr_10">
+                                                    <option value="attr_101" selected="selected">4mm</option>
+                                                    <option value="attr_102">5mm</option>
+                                                    <option value="attr_103">6mm</option>
+                                                    <option value="attr_104">8mm</option>
+                                                    <option value="attr_105">10mm</option>
+                                                    <option value="attr_106">12mm</option>
+                                                    <option value="attr_107">15mm</option>
+                                                    <option value="attr_108">19mm</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 17 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_17"
+                                   role="button" aria-expanded="false"
+                                   >Height
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_17">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_17" name="attr_17" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 18 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_18"
+                                   role="button" aria-expanded="false"
+                                   >Width
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_18">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_18" name="attr_18" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ATTRIBUTE 19 -->
+                            <label class="control-label form-control" style="border: none !important; ">
+                                <a class=" fa fa-plus-right collapsed" data-toggle="collapse"
+                                   style="color: #fff; background-color: #fbbe06; border-color: #446E9B; padding: 15px;
+                                                width: 100%; text-align: left; font-size: 18px;"
+                                   href="#attribute_19"
+                                   role="button" aria-expanded="false"
+                                   >Bohrungen Anzahl
+                                </a>
+                            </label>
+                            <div t-att-class="'attribute_container'">
+                                <div class="collapse multi-collapse"
+                                     id="attribute_19">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-4 ml-3 pt16">
+                                                <input class="form-control" type="number" min="1" id="attr_19" name="attr_19" value="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                     <div class="row mt32 mb32 mx-4 bg-dark text-white" style="margin-left:0px;">
+                        <div class="col-md-12 text-right format_simg_price format_shape_1">
+                            <input type="hidden" id="list_price" t-att-value="product.list_price" />
+                            <p class="fs_22 mb0"><t t-esc="product.currency_id.symbol"/> <span id="list_price_span"><t t-esc="product.list_price"/></span></p>
+                        </div>
+                    </div>
+
+                        <div class="row">
+                            <div class="col-md-10"/>
+                            <div class="col-md-2 pt8 pb8">
+                                <button type="submit" class="btn btn-block text-white bg-dark" style="padding: 10px 50px;">
+                                    CONTINUE
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                </section>
+                <div itemprop="description" t-field="product.website_description" class="oe_structure mt16"
+                     id="product_full_description"/>
+            </div>
+        </t>
+
+    </template>
+
+
+    <template id="website_sale.product_price">
+        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price mt16">
+            <h4 class="oe_price_h4 css_editable_mode_hidden">
+                <span t-attf-class="text-danger oe_default_price {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                      style="text-decoration: line-through; white-space: nowrap;"
+                      t-esc="combination_info['list_price']"
+                      t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"
+                />
+                <div class="product_price">
+                    <span>Price per m<sup>2</sup> :
+                    </span>
+                    <span><t t-esc="product.currency_id.symbol"/> <t t-esc="product.list_price"/></span>
+<!--                    <span class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']"-->
+<!--                          t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>-->
+                </div>
+                <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+            </h4>
+            <h4 class="css_non_editable_mode_hidden decimal_precision"
+                t-att-data-precision="str(website.currency_id.decimal_places)">
+                <span t-field="product.list_price"
+                      t-options='{
+                   "widget": "monetary",
+                   "display_currency": product.currency_id,
+               }'/>
+            </h4>
+            <h4 class="d-none oe_not_available bg-warning">Option not available</h4>
+        </div>
+    </template>
+
+</odoo>

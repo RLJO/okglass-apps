@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="home_template" name="Home Page">
+        <t t-call="website.layout">
+            <section>
+                <div class="owl-slider">
+                    <div id="carousel-custom" class="owl-carousel">
+                        <div class="item">
+                            <img src="ecommerce_custom/static/src/img/6.jpg" style="width:100%;height:800px;"/>
+                        </div>
+                        <div class="item">
+                            <img src="ecommerce_custom/static/src/img/7.png" style="width:100%;height:800px;"/>
+                        </div>
+                        <div class="item">
+                            <img src="ecommerce_custom/static/src/img/8.png" style="width:100%;height:800px;"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="home-cta-bg mt-30   mb30 section-1568730399923" data-section-id="1568730399923"
+                     data-section-type="text-section">
+                    <div class="cta-overlay">
+                        <div class="container">
+                            <div class="h_row_content mt16 h_row_3">
+                                <h2>
+                                    <p class="mb16">Ihr Online-Shop für Glas nach Maß</p>
+                                </h2>
+
+                                <p class="text-black">✓ direkt vom Hersteller ✓
+                                    Express-Service ✓ persönliche Beratung ✓ Rechnungskauf
+                                    ✓ für Privat &amp; Gewerbekunden
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6 box_phone1">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas 1</h2>
+                                    <div class="text-container-subheading">
+                                        <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt als
+                                            ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches erhöhte
+                                            Schlag- und Stoßfestigkeit aufweist und im Fall eines Scheibenbruches in
+                                            kleine Bruchstücke zerfällt, so dass nur ein geringes Verletzungsrisiko
+                                            übrig bleibt.
+                                        </p>
+                                    </div>
+                                    <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                        mehr über ESG Glas
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 box_phone2">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas 2</h2>
+                                    <div class="text-container-subheading">
+                                        <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt als
+                                            ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches erhöhte
+                                            Schlag- und Stoßfestigkeit aufweist und im Fall eines Scheibenbruches in
+                                            kleine Bruchstücke zerfällt, so dass nur ein geringes Verletzungsrisiko
+                                            übrig bleibt.
+                                        </p>
+                                    </div>
+                                    <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                        mehr über ESG Glas
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6 box_phone3">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas 3</h2>
+                                    <div class="text-container-subheading">
+                                        <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt als
+                                            ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches erhöhte
+                                            Schlag- und Stoßfestigkeit aufweist und im Fall eines Scheibenbruches in
+                                            kleine Bruchstücke zerfällt, so dass nur ein geringes Verletzungsrisiko
+                                            übrig bleibt.
+                                        </p>
+                                    </div>
+                                    <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                        mehr über ESG Glas
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 box_phone4">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1">
+                                            <img src="ecommerce_custom/static/src/img/1.jpg" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-container-wrapper text-reversed-right"
+                                             style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                            <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas</h2>
+                                            <div class="text-container-subheading">
+                                                <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt
+                                                    als
+                                                    ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches
+                                                    erhöhte
+                                                    Schlag- und Stoßfestigkeit aufweist und im Fall eines
+                                                    Scheibenbruches in
+                                                    kleine Bruchstücke zerfällt, so dass nur ein geringes
+                                                    Verletzungsrisiko
+                                                    übrig bleibt.
+                                                </p>
+                                            </div>
+                                            <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                                mehr über ESG Glas
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1">
+                                            <img src="ecommerce_custom/static/src/img/1.jpg" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-container-wrapper text-reversed-right"
+                                             style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                            <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas</h2>
+                                            <div class="text-container-subheading">
+                                                <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt
+                                                    als
+                                                    ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches
+                                                    erhöhte
+                                                    Schlag- und Stoßfestigkeit aufweist und im Fall eines
+                                                    Scheibenbruches in
+                                                    kleine Bruchstücke zerfällt, so dass nur ein geringes
+                                                    Verletzungsrisiko
+                                                    übrig bleibt.
+                                                </p>
+                                            </div>
+                                            <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                                mehr über ESG Glas
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1">
+                                            <img src="ecommerce_custom/static/src/img/2.jpg" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-container-wrapper text-reversed-right"
+                                             style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                            <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas</h2>
+                                            <div class="text-container-subheading">
+                                                <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt
+                                                    als
+                                                    ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches
+                                                    erhöhte
+                                                    Schlag- und Stoßfestigkeit aufweist und im Fall eines
+                                                    Scheibenbruches in
+                                                    kleine Bruchstücke zerfällt, so dass nur ein geringes
+                                                    Verletzungsrisiko
+                                                    übrig bleibt.
+                                                </p>
+                                            </div>
+                                            <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                                mehr über ESG Glas
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1">
+                                            <img src="ecommerce_custom/static/src/img/2.jpg" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-container-wrapper text-reversed-right"
+                                             style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                            <h2 class="" style="color: #4fc6e6;">ESG Sicherheitsglas</h2>
+                                            <div class="text-container-subheading">
+                                                <p style="margin-bottom: 0px;">nscheiben-Sicherheits-Glas, auch bekannt
+                                                    als
+                                                    ESG Glas ist ein besonderes thermisch vorgespanntes Glas, welches
+                                                    erhöhte
+                                                    Schlag- und Stoßfestigkeit aufweist und im Fall eines
+                                                    Scheibenbruches in
+                                                    kleine Bruchstücke zerfällt, so dass nur ein geringes
+                                                    Verletzungsrisiko
+                                                    übrig bleibt.
+                                                </p>
+                                            </div>
+                                            <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                                mehr über ESG Glas
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1 pb16">
+                                            <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box box_1 red5 feature_1">
+                                            <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/4.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <h2 class="" style="color: #4fc6e6;">Glas nach Maß: EXPRESS-SERVICE</h2>
+                                    <div class="text-container-subheading">
+                                        <p style="margin-bottom: 0px;">
+                                            Bei Glas-Star.de haben Sie die einmalige Möglichkeit, alle Produkte mit im
+                                            Express-Service zu erhalten!
+
+                                            Dies können wir nur dank der vollständigen Eigenfertigung in Bochum
+                                            gewährleisten. Nur durch den direkten Zugriff haben wir die Möglichkeit, den
+                                            für Sie optimalen Produktionsweg unter Berücksichtigung der
+                                            Liefertermintreue im Interesse des Kunden auszuwählen.
+                                        </p>
+                                        <p class="font-weight-bold">
+                                            Durch den Express-Service erhalten Sie Ihre Bestellung um bis zu 50 %
+                                            schneller, als gegenüber der normalen Lieferzeit!
+                                        </p>
+                                    </div>
+                                    <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                        mehr über den Express-Service erfahren
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56 iframe_video">
+                <div data-section-id="1568730659676" data-section-type="video-section"
+                     class="mb30   container video-section-1568730659676" data-videotype="youtube"
+                     data-videodisplay="autoplay_banner">
+
+                    <div class=" hero-video-wrapper home-video section-1568730659676 hero--medium"
+                         id="hero-video-1568730659676">
+
+                        <div class="vidcover" style="height: 357px; width: 1833px; display: none;"></div>
+
+                        <iframe class="fullvid" id="video-iframe-mobile-1568730659676" data-video-id="CuUZxH2xCfA"
+                                style="width: 100%; height: 624.06px;" frameborder="0" allowfullscreen="1"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                title="YouTube video player" width="1280" height="720"
+                                src="https://www.youtube.com/embed/?autohide=0&amp;branding=0&amp;cc_load_policy=0&amp;controls=0&amp;fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;quality=hd720&amp;rel=0&amp;showinfo=0&amp;loop=1&amp;playlist=CuUZxH2xCfA&amp;wmode=opaque&amp;videoId=CuUZxH2xCfA&amp;type=youtube&amp;mute=1&amp;autoplay=1&amp;attemptedToPlay=false&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.glas-star.de&amp;widgetid=1"></iframe>
+
+                        <div class="text-center hero-video-caption hero-video-caption-1568730659676 container"
+                             style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt40 home-cta-new">
+                <div class="cta-overlay">
+                    <div class="container">
+                        <div class="h_row_content h_row_3">
+                            <h2 class="mb48">
+                                <p style="margin-bottom: 0px;">IHRE SPEZIALISTEN FÜR GLAS NACH MASS</p>
+                            </h2>
+
+                            <p>SCHÖN, DASS WIR UNS VORSTELLEN DÜRFEN! GLAS-STAR.DE<br/>Glas-Star.de bietet Ihnen eine
+                                riesige Auswahl an Glas nach Maß Produkten, direkt vom Hersteller &amp; made in germany!
+                            </p>
+                            <p>Glas öffnet Räume, trennt auf verbindende Weise, setzt Akzente und verleiht der
+                                Architektur Leichtigkeit.<br/>Glas fasziniert mit strahlenden Farben, begeistert mit
+                                Motiven und Dekoren, schützt auf stilvolle Weise.<br/>Was immer Sie vorhaben, bei
+                                Glas-Star finden Sie das passende Glas. Exakt nach Ihrem Maß.
+                            </p>
+                            <p>Sie haben die Idee, wir das passende Glas! Ihre Wohnideen aus Glas zu fertigen, ist
+                                unsere Leidenschaft. Ob Raumteiler aus Glas, Glasdusche, Glastreppe, Glasgeländer oder
+                                gläserne Wandverkleidung – in unserem Online-Shop finden Sie mehr als 90 Glasvarianten,
+                                die wir exakt nach Ihrem Maß fertigen. Sie erhalten Ihre Wunsch-Glasscheibe in der Größe
+                                und Stärke, die Sie benötigen.<br/>Mit der Kantenbearbeitung und Bohrung, die Sie
+                                wünschen. Dafür sind wir da!
+                            </p>
+                            <p>Auch in Puncto Spiegel nach Maß ist Glas-Star.de Ihr Online-Shop Nummer eins.
+                                Bei uns erhalten Sie sämtliche Spiegel – vom repräsentativen Wandspiegel und Badspiegel
+                                aus
+                                Kristallglas bis zum Multimedia-Spiegel für Smart Mirror bzw. Magic
+                                Mirror Anwendungen. In 4 mm und 6 mm Stärke, in Ihrem Wunschmaß. Individuell für
+                                Sie hergestellt.
+                            </p>
+                            <p>Bei uns erhalten Sie ESG Glas nach DIN EN 12150 ab einer Glasdicke von 4mm bis 15mm,
+                                sowie VSG Glas ab einer Glasdicke von 6mm. Alle Gläser können Sie individuell online
+                                gestalten und bestellen. Wir fertigen für Sie Fachgerecht im Herzen des Ruhrgebiet´s und
+                                liefern Ihre Wunschbestellung in Deutschland, Belgien, Österreich, Luxemburg, Schweiz,
+                                Niederlande &amp; Spanien an Ihre Wunschadresse aus. Weitere Länder sind auf Anfrage
+                                ebenfalls möglich.
+                            </p>
+                            <p>Sowohl klare Glasscheiben für Tischplatten als auch Glasduschen und Glastüren bieten wir
+                                zu günstigen Preisen, schnellen Lieferzeiten aber in dennoch hoher Qualität "made in
+                                Germany" an. Wenn Sie sich unsicher sind, beraten wir Sie gern zu Ihrem individuellen
+                                Vorhaben- Rufen Sie uns einfach an!
+                            </p>
+                            <p style="margin-bottom: 0px;">Küchenrückwände aus Glas (lackiertes ESG Glas) und VSG-Glas
+                                mit farbiger Folie stellen uns dank der vollständigen Eigenfertigung vor lösbaren
+                                Aufgaben, die wir gern für Sie in Tat umsetzen! Aber auch spezielle Gläser für begehbare
+                                Zwecke oder komplette Glas-Vordachsysteme sind ebenso erhältlich, wie VSG Glas für
+                                Balkongeländer und Absturzsicherungen.<br/>Weitere Verwendungsmöglichkeiten können Sie
+                                den einzelnen Produktdetails entnehmen.
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt40">
+                <div class="home-cta-bg mt-30   mb30 section-1575314074620" data-section-id="1575314074620"
+                     data-section-type="text-section">
+                    <div class="cta-overlay">
+                        <div class="container">
+                            <div class="h_row_content h_row_3">
+                                <h2>
+                                    <p class="text-black" style="margin-bottom: 0px;">Glas-Star.de ist Ihre Nr. 1 wenn
+                                        es um Glas nach Maß
+                                        online geht!
+                                    </p>
+                                </h2>
+
+                                <p>Wir freuen uns, Sie als Kunde in unserem Shop begrüßen zu dürfen. Sollten Sie Fragen
+                                    haben, zögern Sie nicht uns zu kontaktieren. Gern unterbreiten wir auch individuelle
+                                    Angebote zu allen Produkten aus Glas für Sie!
+                                </p>
+                                <p style="margin-bottom: 0px;">Glas-Star.de ist Ihre Nr. 1 wenn es um ESG
+                                    Einscheiben-Sicherheits-Glas,
+                                    VSG Glas oder Funktionsgläser geht, aber auch bei Sonderprodukten haben wir immer
+                                    eine Glasklare Lösung parat! Glas-Star.de ...eine klare Angelegenheit!
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <h2 class="" style="color: #4fc6e6;">SPEZIALISTEN FÜR GLAS NACH MAß</h2>
+                                    <div class="text-container-subheading">
+                                        <p>
+                                            Glas-Star.de bietet Ihnen eine riesige Auswahl an Glas nach Maß Produkten,
+                                            direkt vom Hersteller &amp; made in Germany!
+                                        </p>
+                                        <p style="margin-bottom: 0px;">
+                                            Glas öffnet Räume, trennt auf verbindende Weise, setzt Akzente und verleiht
+                                            der Architektur Leichtigkeit. Glas fasziniert mit strahlenden Farben,
+                                            begeistert mit Motiven und Dekoren, schützt auf stilvolle Weise. Was immer
+                                            Sie vorhaben, bei Glas-Star finden Sie das passende Glas.
+                                            <br/>
+                                            <b>Exakt nach Ihrem Maß.</b>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt56">
+                <div class="container image_with_text_container image_with_text_container--right"
+                     data-section-id="16296314648f7eab51" data-section-type="image-with-text">
+                    <div class="h_row_content h_row_1 section-16296314648f7eab51">
+                        <div class="row">
+                            <div class="col-sm-6 box_phone5">
+                                <div class="text-container-wrapper text-reversed-right"
+                                     style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+
+                                    <div class="text-container-subheading">
+                                        <p style="margin-bottom: 0px;">
+                                            Sie haben die Idee, wir das passende Glas! Ihre Wohnideen aus Glas zu
+                                            fertigen, ist unsere Leidenschaft. Ob Raumteiler aus Glas, Glasdusche,
+                                            Glastreppe, Glasgeländer oder gläserne Wandverkleidung – in unserem
+                                            Online-Shop finden Sie mehr als 90 Glasvarianten, die wir exakt nach Ihrem
+                                            Maß fertigen. Sie erhalten Ihre Wunsch-Glasscheibe in der Größe und Stärke,
+                                            die Sie benötigen. Mit der Kantenbearbeitung und Bohrung, die Sie wünschen.
+                                            <b>Dafür sind wir da!</b>
+                                        </p>
+                                    </div>
+                                    <a href="/collections/esg-glas-nach-mass" class="btn_c ml-0">
+                                        mehr über ESG Glas
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 box_phone6">
+                                <div class="box box_1 red5 feature_1">
+                                    <img src="ecommerce_custom/static/src/img/2.png" style="width:100%;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt56 mb56">
+                <div class="container" data-section-id="1576079402181" data-section-type="blog-section">
+                    <div class="h_row_content">
+                        <div class="clearfix">
+                            <h3 class="font-weight-bold" style="color: #4fc6e6;">Glas Info-Blog</h3>
+                        </div>
+                        <div class="blog_c home_recentpost ideas-hover">
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <div class="blog_blk red5 clearfix"
+                                         style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+                                        <a href="#">
+                                            <div class="box article_img_block">
+                                                <img src="ecommerce_custom/static/src/img/1.jpg"
+                                                     style="width:100%;height: 160px;"/>
+                                            </div>
+                                        </a>
+                                        <div class="rte clearfix">
+                                            <h2>
+                                                <a href="#">
+                                                    Individuelle Glasbilder - ein effektvoller Blickfang für jede
+                                                    Wohnung
+                                                </a>
+                                            </h2>
+                                            <span>
+                                                <span>Ob großzügiger Altbau, Einfamilienhaus oder gemütliche
+                                                    Studenten-Bude - schon kleine Veränderungen können die gesamte
+                                                    Wohnung aufwerten.
+                                                </span>
+                                            </span>
+                                            <span>Ein solcher Blickfang sind individuell gestaltete Glasbilder.
+                                                Glasbilder passen einfach in jede Wohnung und je nach Einrichtungsstil
+                                                kann das perfekte Motiv ausgewählt werden.
+                                            </span>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"
+                                               class="btn_c">Mehr lesen
+                                            </a>
+                                        </div>
+                                        <div class="tag_c clearfix">
+                                            <ul>
+                                                <li>
+                                                    <span class="fa fa-calendar"></span>
+                                                    <span>
+                                                        <time datetime="Dec 22, 2021">Dec 22, 2021</time>
+                                                    </span>
+                                                </li>
+                                                <li><span class="fa fa-user"></span>Maik Grondkowski
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="blog_blk red5 clearfix"
+                                         style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+                                        <a href="#">
+                                            <div class="box article_img_block">
+                                                <img src="ecommerce_custom/static/src/img/1.jpg"
+                                                     style="width:100%;height: 160px;"/>
+                                            </div>
+                                        </a>
+                                        <div class="rte clearfix">
+                                            <h2>
+                                                <a href="#">
+                                                    Individuelle Glasbilder - ein effektvoller Blickfang für jede
+                                                    Wohnung
+                                                </a>
+                                            </h2>
+                                            <span>
+                                                <span>Ob großzügiger Altbau, Einfamilienhaus oder gemütliche
+                                                    Studenten-Bude - schon kleine Veränderungen können die gesamte
+                                                    Wohnung aufwerten.
+                                                </span>
+                                            </span>
+                                            <span>Ein solcher Blickfang sind individuell gestaltete Glasbilder.
+                                                Glasbilder passen einfach in jede Wohnung und je nach Einrichtungsstil
+                                                kann das perfekte Motiv ausgewählt werden.
+                                            </span>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"
+                                               class="btn_c">Mehr lesen
+                                            </a>
+                                        </div>
+                                        <div class="tag_c clearfix">
+                                            <ul>
+                                                <li>
+                                                    <span class="fa fa-calendar"></span>
+                                                    <span>
+                                                        <time datetime="Dec 22, 2021">Dec 22, 2021</time>
+                                                    </span>
+                                                </li>
+                                                <li><span class="fa fa-user"></span>Maik Grondkowski
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="blog_blk red5 clearfix"
+                                         style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+                                        <a href="#">
+                                            <div class="box article_img_block">
+                                                <img src="ecommerce_custom/static/src/img/1.jpg"
+                                                     style="width:100%;height: 160px;"/>
+                                            </div>
+                                        </a>
+                                        <div class="rte clearfix">
+                                            <h2>
+                                                <a href="#">
+                                                    Individuelle Glasbilder - ein effektvoller Blickfang für jede
+                                                    Wohnung
+                                                </a>
+                                            </h2>
+                                            <span>
+                                                <span>Ob großzügiger Altbau, Einfamilienhaus oder gemütliche
+                                                    Studenten-Bude - schon kleine Veränderungen können die gesamte
+                                                    Wohnung aufwerten.
+                                                </span>
+                                            </span>
+                                            <span>Ein solcher Blickfang sind individuell gestaltete Glasbilder.
+                                                Glasbilder passen einfach in jede Wohnung und je nach Einrichtungsstil
+                                                kann das perfekte Motiv ausgewählt werden.
+                                            </span>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"
+                                               class="btn_c">Mehr lesen
+                                            </a>
+                                        </div>
+                                        <div class="tag_c clearfix">
+                                            <ul>
+                                                <li>
+                                                    <span class="fa fa-calendar"></span>
+                                                    <span>
+                                                        <time datetime="Dec 22, 2021">Dec 22, 2021</time>
+                                                    </span>
+                                                </li>
+                                                <li><span class="fa fa-user"></span>Maik Grondkowski
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="blog_blk red5 clearfix"
+                                         style="box-shadow: 0 2px 2px rgb(11 25 28 / 10%);">
+                                        <a href="#">
+                                            <div class="box article_img_block">
+                                                <img src="ecommerce_custom/static/src/img/1.jpg"
+                                                     style="width:100%;height: 160px;"/>
+                                            </div>
+                                        </a>
+                                        <div class="rte clearfix">
+                                            <h2>
+                                                <a href="#">
+                                                    Individuelle Glasbilder - ein effektvoller Blickfang für jede
+                                                    Wohnung
+                                                </a>
+                                            </h2>
+                                            <span>
+                                                <span>Ob großzügiger Altbau, Einfamilienhaus oder gemütliche
+                                                    Studenten-Bude - schon kleine Veränderungen können die gesamte
+                                                    Wohnung aufwerten.
+                                                </span>
+                                            </span>
+                                            <span>Ein solcher Blickfang sind individuell gestaltete Glasbilder.
+                                                Glasbilder passen einfach in jede Wohnung und je nach Einrichtungsstil
+                                                kann das perfekte Motiv ausgewählt werden.
+                                            </span>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"
+                                               class="btn_c">Mehr lesen
+                                            </a>
+                                        </div>
+                                        <div class="tag_c clearfix">
+                                            <ul>
+                                                <li>
+                                                    <span class="fa fa-calendar"></span>
+                                                    <span>
+                                                        <time datetime="Dec 22, 2021">Dec 22, 2021</time>
+                                                    </span>
+                                                </li>
+                                                <li><span class="fa fa-user"></span>Maik Grondkowski
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+
+</odoo>
