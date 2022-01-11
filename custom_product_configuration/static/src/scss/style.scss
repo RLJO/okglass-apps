@@ -65,3 +65,69 @@ input[type='text']::placeholder{
 .fs_22{
     font-size: 22px;
 }
+
+
+.accordion .card-header:after {
+    font-family: 'FontAwesome';
+    content: "\f107";
+    float: right;
+    font-weight: bold;
+    font-size: 20px;
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f105";
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/* Image With Radio Button */
+
+.parent{
+    padding-top: 6px;
+}
+.parent>.row{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.col img{
+    height:100px;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 1s;
+    object-fit: cover;
+}
+.col label{
+    overflow: hidden;
+    position: relative;
+}
+.imgbgchk:checked + label>.tick_container{
+    opacity: 1;
+}
+/*         aNIMATION */
+.imgbgchk:checked + label>img{
+    transform: scale(1.25);
+    opacity: 0.3;
+}
+.tick_container {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+    text-align: center;
+}
+.tick {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 6px 12px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
