@@ -165,6 +165,42 @@ $(document).ready(function(){
         $('.format_shape_7').addClass('active');
     });
 
+    $(document).on('click', '.right_side', function(){
+        var right_side_val = $(this).val()
+        if(right_side_val == '2'){
+            $('.right_xy').removeClass('d-none')
+        }else{
+            $('.right_xy').addClass('d-none')
+        }
+    })
+
+    $(document).on('click', '.top_side', function(){
+        var top_side_val = $(this).val()
+        if(top_side_val == '2'){
+            $('.top_xy').removeClass('d-none')
+        }else{
+            $('.top_xy').addClass('d-none')
+        }
+    })
+
+    $(document).on('click', '.left_side', function(){
+        var left_side_val = $(this).val()
+        if(left_side_val == '2'){
+            $('.left_xy').removeClass('d-none')
+        }else{
+            $('.left_xy').addClass('d-none')
+        }
+    })
+
+    $(document).on('click', '.bottom_side', function(){
+        var bottom_side_val = $(this).val()
+        if(bottom_side_val == '2'){
+            $('.bottom_xy').removeClass('d-none')
+        }else{
+            $('.bottom_xy').addClass('d-none')
+        }
+    })
+
      // Cart Submit Function
     var has_submit_address_clicked = false;
     $("#cart_form").on('submit' ,function(e) {

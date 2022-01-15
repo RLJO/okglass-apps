@@ -517,50 +517,58 @@
                                             <div class="parent">
                                                 <div class="row">
                                                     <div class='col text-center dome_img'>
-                                                        <input type="radio" name="imgbackground" id="img1"
-                                                               class="d-none imgbgchk" value="1" checked="checked"/>
+
                                                         <label for="img1">
                                                             <img src="/custom_product_configuration/static/src/img/kantenauswahl_1.jpg"
-                                                                 class="img img-responsive "/>
+                                                                 class="img img-responsive " style="width:200px;height:200px"/>
                                                             <div class="tick_container">
                                                                 <div class="tick">
                                                                     <i class="fa fa-check"></i>
                                                                 </div>
                                                             </div>
                                                         </label>
+
                                                         <label for="imgbackground">
+                                                             <input type="radio" name="imgbackground" id="img1"
+                                                               class="imgbgchk" value="1" checked="checked"/>
                                                             Gesäumt (entgratet)
                                                         </label>
                                                     </div>
+
                                                     <div class='col text-center dome_img'>
-                                                        <input type="radio" name="imgbackground" id="img2"
-                                                               class="d-none imgbgchk" value="2"/>
+
                                                         <label for="img2">
                                                             <img src="/custom_product_configuration/static/src/img/kantenauswahl_2.jpg"
-                                                                 class="img img-responsive "/>
+                                                                 class="img img-responsive " style="width:200px;height:200px"/>
                                                             <div class="tick_container">
                                                                 <div class="tick">
                                                                     <i class="fa fa-check"></i>
                                                                 </div>
                                                             </div>
                                                         </label>
+
                                                         <label for="imgbackground">
+                                                            <input type="radio" name="imgbackground" id="img2"
+                                                               class="imgbgchk" value="2"/>
                                                             Matt geschliffen
                                                         </label>
                                                     </div>
+
                                                     <div class='col text-center dome_img'>
-                                                        <input type="radio" name="imgbackground" id="img3"
-                                                               class="d-none imgbgchk" value="3"/>
+
                                                         <label for="img3">
                                                             <img src="/custom_product_configuration/static/src/img/kantenauswahl_3.jpg"
-                                                                 class="img img-responsive dome_img"/>
+                                                                 class="img img-responsive dome_img" style="width:200px;height:200px"/>
                                                             <div class="tick_container">
                                                                 <div class="tick">
                                                                     <i class="fa fa-check"></i>
                                                                 </div>
                                                             </div>
                                                         </label>
+
                                                         <label for="imgbackground">
+                                                            <input type="radio" name="imgbackground" id="img3"
+                                                               class="imgbgchk" value="3"/>
                                                             Hochglanz poliert
                                                         </label>
                                                     </div>
@@ -576,12 +584,183 @@
                                             </a>
                                         </div>
                                         <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                            <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-                                                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                                eiusmod. Brunch 3 wolf moon tempor, sunt
-                                                aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                                shoreditch et. samus labore sustainable VHS.
+                                            <div class="parent">
+                                                <div class="row border mx-3 my-3 py-3">
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="right_side" id="right_side_1"
+                                                               class="right_side" value="1" checked="checked"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_1.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="right_side" id="right_side_2"
+                                                               class="right_side" value="2"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_2.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="right_side" id="right_side_3"
+                                                               class="right_side" value="3"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_3.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-6 right_xy d-none">
+                                                        <label><span class="text-danger"></span>X
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                    <div class="col-md-6 right_xy d-none">
+                                                        <label><span class="text-danger"></span>Y
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row border mx-3 my-3 py-3">
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="top_side" id="top_side_1"
+                                                               class="top_side" value="1" checked="checked"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_1.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="top_side" id="top_side_2"
+                                                               class="top_side" value="2"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_2.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="top_side" id="top_side_3"
+                                                               class="top_side" value="3"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_3.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-6 top_xy d-none">
+                                                        <label><span class="text-danger"></span>X
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                    <div class="col-md-6 top_xy d-none">
+                                                        <label><span class="text-danger"></span>Y
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="row border mx-3 my-3 py-3">
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="left_side" id="left_side_1"
+                                                               class="left_side" value="1" checked="checked"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_1.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="left_side" id="left_side_2"
+                                                               class="left_side" value="2" />
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_2.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="left_side" id="left_side_3"
+                                                               class="left_side" value="3"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_3.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-6 left_xy d-none">
+                                                        <label><span class="text-danger"></span>X
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                    <div class="col-md-6 left_xy d-none">
+                                                        <label><span class="text-danger"></span>Y
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="row border mx-3 my-3 py-3">
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="bottom_side" id="bottom_side_1"
+                                                               class="bottom_side" value="1" checked="checked"/>
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_1.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="bottom_side" id="bottom_side_2"
+                                                               class="bottom_side" value="2" />
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_2.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class='col-md-2 text-center dome_img'>
+                                                        <label for="img1">
+                                                            <input type="radio" name="bottom_side" id="bottom_side_3"
+                                                               class="bottom_side" value="3" />
+                                                            <img src="/custom_product_configuration/static/src/img/cornar_3.png"
+                                                                 class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-6 bottom_xy d-none">
+                                                        <label><span class="text-danger"></span>X
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                    <div class="col-md-6 bottom_xy d-none">
+                                                        <label><span class="text-danger"></span>Y
+                                                        </label>
+                                                        <input type="text" id="width_shape_1"
+                                                               class="form-control shape_input"
+                                                               name="width_shape_1"
+                                                               placeholder="mm" value="0"/>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -593,12 +772,9 @@
                                             </a>
                                         </div>
                                         <div id="collapseFour" class="collapse" data-parent="#accordion">
-                                            <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-                                                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                                eiusmod. Brunch 3 wolf moon tempor, sunt
-                                                aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                                shoreditch et. samus labore sustainable VHS.
+                                            <div class="card-body">
+                                                pdf Dateien mit max. 2.5mb
+
                                             </div>
                                         </div>
                                     </div>
