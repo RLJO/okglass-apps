@@ -502,6 +502,46 @@
                                                         </div>
                                                     </div>
                                                 </t>
+
+                                                <!-- Width Selection -->
+                                                <div class="row pb32">
+                                                    <div class="col-md-12 text-center">
+                                                        <ul class="donate-now">
+                                                            <li>
+                                                                <input type="radio" id="a4" name="amount"  checked="checked"/>
+                                                                <label for="a4">4 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a5" name="amount"/>
+                                                                <label for="a5">5 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a6" name="amount"
+                                                                      />
+                                                                <label for="a6">6 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a8" name="amount"/>
+                                                                <label for="a8">8 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a10" name="amount"/>
+                                                                <label for="a10">10 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a12" name="amount"/>
+                                                                <label for="a12">12 mm</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" id="a15" name="amount"/>
+                                                                <label for="a15">15 mm</label>
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
 
@@ -576,6 +616,7 @@
                                             </div>
                                         </div>
 
+                                        <!-- THIRD SECTION -->
                                         <div class="card-header bg-white collapsed border-top" data-toggle="collapse"
                                              data-parent="#accordion"
                                              href="#collapseThree">
@@ -764,6 +805,7 @@
                                             </div>
                                         </div>
 
+                                        <!-- FOURTH SECTION -->
                                         <div class="card-header bg-white collapsed border-top" data-toggle="collapse"
                                              data-parent="#accordion"
                                              href="#collapseFour">
@@ -773,8 +815,43 @@
                                         </div>
                                         <div id="collapseFour" class="collapse" data-parent="#accordion">
                                             <div class="card-body">
-                                                pdf Dateien mit max. 2.5mb
-
+                                                <table id="grant_other_expenses" class="table order-list">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Durchmesser (mm)</th>
+                                                            <th>Abstand von links (mm)</th>
+                                                            <th>Abstand von oben (mm)</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+<!--                                                        <tr>-->
+<!--                                                            <td>-->
+<!--                                                               <input type="number" name="num_1"-->
+<!--                                                                       class="form-control numericOnly" value="20"/>-->
+<!--                                                            </td>-->
+<!--                                                            <td>-->
+<!--                                                                <input type="number" name="num_2"-->
+<!--                                                                       class="form-control numericOnly" value="18"/>-->
+<!--                                                            </td>-->
+<!--                                                            <td>-->
+<!--                                                                <input type="number" name="num_3"-->
+<!--                                                                       class="form-control numericOnly" value="18"/>-->
+<!--                                                            </td>-->
+<!--                                                            <td></td>-->
+<!--                                                        </tr>-->
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="4" style="text-align: left;">
+                                                                <input type="button" class="btn btn-primary"
+                                                                       id="addGrantOtherExpensesRow"
+                                                                       value="Add"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                                <!--                                                pdf Dateien mit max. 2.5mb-->
                                             </div>
                                         </div>
                                     </div>

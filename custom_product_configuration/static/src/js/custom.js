@@ -1,4 +1,37 @@
+function number_validation(){
+    $(".numericOnly").bind('keypress',function (e) {
+        if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+    });
+    $(".floatOnly").bind('keypress',function (e) {
+        if (String.fromCharCode(e.keyCode).match(/^[0-9]*.?[0-9]*$/g)) return false;
+    });
+}
+
 $(document).ready(function(){
+
+     //dynamic table for grant other expenses
+    var grant_other_expenses_counter = 0;
+    if($('#grant_other_expenses')){
+        $("#addGrantOtherExpensesRow").on("click", function () {
+            var newRow = $("<tr>");
+            var cols = "";
+
+            cols += '<td><input type="number" class="form-control numericOnly" name="num_1" value="20"/></td>';
+            cols += '<td><input type="number" class="form-control numericOnly" name="num_2" value="18"/></td>';
+            cols += '<td><input type="number" class="form-control numericOnly" name="num_3" value="18"/></td>';
+
+            cols += '<td><input type="button" class="ibtnGOEIDel btn btn-md btn-danger "  value="Delete"></td>';
+            newRow.append(cols);
+            $("table#grant_other_expenses.order-list").append(newRow);
+            grant_other_expenses_counter++;
+            number_validation();
+        });
+    }
+    $("table.order-list").on("click", ".ibtnGOEIDel", function (event) {
+        $(this).closest("tr").remove();
+        grant_other_expenses_counter -= 1
+    });
+
 
     if($('#list_price').length){
         price = priceCalculation(1)
