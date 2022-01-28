@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delivery_carrier_log_view_stock_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="after">
+                <span attrs="{'invisible':[('use_carrier_shipping', '!=', True)]}">
+                <h2><label for="delivery_carrier_log_ids" string="Delivery carrier logs"/></h2>
+                <field name="delivery_carrier_log_ids" readonly="1"/>
+                </span>
+            </xpath>
+        </field>
+    </record>
+</odoo>

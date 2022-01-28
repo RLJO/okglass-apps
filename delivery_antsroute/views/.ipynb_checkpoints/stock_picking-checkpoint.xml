@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="antsroute_view_stock_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="use_antsroute" invisible="1"/>
+                <button attrs="{'invisible':['|', '|', ('use_antsroute', '!=', True), ('antsroute_delivery_status', '=', 'DONE'), '|', ('state', '!=', ('assigned')), ('picking_type_code', '!=', 'outgoing')]}"
+                    string="Request carrier pickup" name="send_to_carrier_for_pickup" type="object" class="oe_highlight" />
+                <button attrs="{'invisible':['|', ('use_antsroute', '!=', True), '|', ('state', '!=', ('assigned')), ('picking_type_code', '!=', 'outgoing')]}"
+                    string="Get delivery information" name="antsroute_get_delivery_info" type="object" class="oe_highlight" />
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="use_antsroute" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="antsroute_shipping_qty"/>
+                <field name="antsroute_product_description"/>
+                <field name="antsroute_order_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="antsroute_shipping_value" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+            <xpath expr="//page[@name='note']" position="after">
+                <page string="Antsroute informations" name="antsroute_informations" attrs="{'invisible':[('use_antsroute', '!=', True)]}">
+                    <group>
+                        <field name="antsroute_delivery_date" readonly="1"/>
+                        <field name="antsroute_delivery_status" readonly="1"/>
+                        <field name="antsroute_delivery_driver" readonly="1"/>
+                        <field name="antsroute_delivery_vehicle_plate" readonly="1"/>
+                        <field name="antsroute_delivery_signature" readonly="1" widget="image"/>
+                        <field name="antsroute_nb_delivery_photo" readonly="1"/>
+                        <field name="antsroute_delivery_comment" readonly="1"/>
+                        <field name="antsroute_delivery_barcodes" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

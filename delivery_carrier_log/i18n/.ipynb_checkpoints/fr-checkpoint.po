@@ -1,0 +1,190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_carrier_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-04 20:17+0000\n"
+"PO-Revision-Date: 2021-02-04 20:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__carrier_id
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Carrier"
+msgstr "Méthode de livraison"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "Context"
+msgstr "Contexte"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__date_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Date"
+msgstr "Date"
+
+#. module: delivery_carrier_log
+#: model:ir.model,name:delivery_carrier_log.model_delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "Delivery carrier log"
+msgstr "Historique méthode de livraison"
+
+#. module: delivery_carrier_log
+#: model:ir.actions.act_window,name:delivery_carrier_log.action_delivery_carrier_log_form
+#: model:ir.ui.menu,name:delivery_carrier_log.menu_delivery_carrier_log_action
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.delivery_carrier_log_view_stock_picking_form
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_tree
+msgid "Delivery carrier logs"
+msgstr "Historique méthodes de livraison"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "ERROR"
+msgstr "ERREUR"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields.selection,name:delivery_carrier_log.selection__delivery_carrier_log__log_type__error
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Error"
+msgstr "Erreur"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__id
+msgid "ID"
+msgstr ""
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "INFO"
+msgstr ""
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields.selection,name:delivery_carrier_log.selection__delivery_carrier_log__log_type__info
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Information"
+msgstr "Information"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_stock_picking__delivery_carrier_log_ids
+msgid "Logs"
+msgstr "Historiques"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__name
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Name"
+msgstr "Nom"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.actions.act_window,help:delivery_carrier_log.action_delivery_carrier_log_form
+msgid "Odoo helps you easily to manager your carrier logs"
+msgstr "Odoo vous aide à gérer vos historiques d'échanges transporteurs"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Search delivery carrier logs"
+msgstr "Recherche"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__picking_id
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Stock picking"
+msgstr "Bon de livraison"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "Technical information"
+msgstr "Informations techniques"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__technical_info_1
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "Technical information 1"
+msgstr "Information technique 1"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__technical_info_2
+msgid "Technical information 2"
+msgstr "Information technique 2"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__technical_info_3
+msgid "Technical information 3"
+msgstr "Information technique 3"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__technical_info_4
+msgid "Technical information 4"
+msgstr "Information technique 4"
+
+#. module: delivery_carrier_log
+#: model:ir.model,name:delivery_carrier_log.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__log_type
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Type"
+msgstr "Type"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields,field_description:delivery_carrier_log.field_delivery_carrier_log__user_id
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: delivery_carrier_log
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_form
+msgid "WARNING"
+msgstr "WARNING"
+
+#. module: delivery_carrier_log
+#: model:ir.model.fields.selection,name:delivery_carrier_log.selection__delivery_carrier_log__log_type__warning
+#: model_terms:ir.ui.view,arch_db:delivery_carrier_log.view_delivery_carrier_log_filter
+msgid "Warning"
+msgstr "Avertissement"

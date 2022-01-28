@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<odoo>
+    
+    <record id="view_delivery_carrier_log_form" model="ir.ui.view">
+        <field name="name">delivery.carrier.log.form</field>
+        <field name="model">delivery.carrier.log</field>
+        <field name="arch" type="xml">
+            <form string="Delivery carrier log">
+	            <sheet>
+                    <field name="log_type" invisible="1"/>
+                    <widget name="web_ribbon" title="INFO" attrs="{'invisible': [('log_type', 'in', ('error', 'warning'))]}"/>
+                    <widget name="web_ribbon" title="WARNING" bg_color="bg-danger" attrs="{'invisible': [('log_type', 'in', ('error', 'info'))]}"/>
+                    <widget name="web_ribbon" title="ERROR" bg_color="bg-danger" attrs="{'invisible': [('log_type', 'in', ('info', 'warning'))]}"/>
+                    <h1><field name="name"/></h1>
+	                <group>
+	                    <group string="Context" colspan="2">
+                            <field name="date_log"/>
+                            <field name="user_id"/>
+                            <field name="carrier_id"/>
+	                    	<field name="picking_id"/>
+	                    </group>
+                    </group>
+                    <group>
+	                    <group string="Technical information" colspan="2">
+                            <label for="technical_info_1" string="Technical information 1"/>
+                            <field name="technical_info_1"/>
+	                    	<field name="technical_info_2"/>
+                            <field name="technical_info_3"/>
+                            <field name="technical_info_4"/>
+	                    </group>
+	                </group>
+	            </sheet>
+            </form>
+        </field>
+    </record>  
+
+    <record id="view_delivery_carrier_log_tree" model="ir.ui.view">
+        <field name="name">delivery.carrier.log.tree</field>
+        <field name="model">delivery.carrier.log</field>
+        <field eval="8" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Delivery carrier logs" decoration-danger="log_type=='error'">
+	            <field name="date_log"/>
+                <field name="user_id"/>
+                <field name="name"/>
+                <field name="carrier_id"/>
+	            <field name="picking_id"/>
+                <field name="log_type"/>
+	            <!--
+                <field name="technical_info_1"/>
+                <field name="technical_info_2"/>
+                <field name="technical_info_3"/>
+                <field name="technical_info_4"/>
+                -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_delivery_carrier_log_filter" model="ir.ui.view">
+        <field name="name">delivery.carrier.log.search</field>
+        <field name="model">delivery.carrier.log</field>
+        <field name="arch" type="xml">
+            <search string="Search delivery carrier logs">
+                <field name="name" filter_domain="['|','|',('carrier_id', 'ilike', self),('user_id', 'ilike', self), ('picking_id', 'ilike', self)]"/>
+                <field name="date_log" />
+                <field name="user_id"/>
+                <field name="carrier_id"/>
+                <field name="picking_id"/>
+                <field name="log_type"/>
+                <separator/>
+                <filter name="date_log" string="Date" date="date_log"/>
+                <separator/>
+                <filter name="info" string="Information" domain="[('log_type','=','info')]"/>
+                <filter name="warning" string="Warning" domain="[('log_type','=','warning')]"/>
+                <filter name="error" string="Error" domain="[('log_type','=','error')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Type" name="delivery_carrier_log_type" domain="[]" context="{'group_by':'log_type'}"/>
+                    <filter string="Date" domain="[]" name="delivery_carrier_log_date_group" context="{'group_by':'date_log'}"/>
+                    <filter string="User" name="delivery_carrier_log_user_id_group" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Carrier" name="delivery_carrier_log_carrier_id_group" domain="[]" context="{'group_by':'carrier_id'}"/>
+                    <filter string="Stock picking" name="delivery_carrier_log_picking_id_group" domain="[]" context="{'group_by':'picking_id'}"/>
+                    <filter string="Name" name="delivery_carrier_log_name_group" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <record id="action_delivery_carrier_log_form" model="ir.actions.act_window">
+        <field name="name">Delivery carrier logs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">delivery.carrier.log</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p>Odoo helps you easily to manager your carrier logs</p>
+        </field>
+    </record> 
+    
+    <menuitem id="menu_delivery_carrier_log_action"
+        name="Delivery carrier logs"
+        action="action_delivery_carrier_log_form"
+        parent="stock.menu_warehouse_report"
+        sequence="180"/>
+
+</odoo>

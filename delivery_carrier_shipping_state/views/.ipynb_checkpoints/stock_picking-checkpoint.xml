@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="shipping_state_view_stock_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="shipping_state"/>
+                <field name="use_carrier_shipping"/>
+            </xpath>
+            <xpath expr="//field[@name='date_done']" position="before">
+                <field name="sent_to_carrier" attrs="{'invisible':[('sent_to_carrier', '=', False)]}" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="shipping_state_view_stock_picking_tree" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="carrier_id" optional="show"/> 
+                <field name="sent_to_carrier" optional="show"/> 
+            </xpath>
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="shipping_state" optional="show"/> 
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="shipping_state_view_picking_search" model="ir.ui.view">
+        <field name="name">stock.picking.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='late']" position="before">
+                <filter name="pickup_request" string="Pickup to request" domain="[('shipping_state', '=', 'pickup_request')]"/>
+                <filter name="pickup_requested" string="Pickup requested" domain="[('shipping_state', '=', 'pickup_requested')]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Shipping state" name="procede_state" domain="[]" context="{'group_by': 'shipping_state'}"/>
+                <filter string="Carrier" name="carrier" domain="[]" context="{'group_by': 'carrier_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

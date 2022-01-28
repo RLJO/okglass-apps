@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="antsroute_view_delivery_carrier_form" model="ir.ui.view">
+        <field name="name">delivery.carrier.antsroute.form</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='integration_level']" position="after">
+                <field name="use_antsroute" attrs="{'invisible':[('delivery_type', 'not in', ('fixed', 'base_on_rule'))]}"/>
+            </xpath>
+            <xpath expr="//page[@name='destination']" position="after">
+                <page string="Antsroute" attrs="{'invisible':[('use_antsroute', '=', False)]}">
+                    <group colspan="2" string="API Configuration" name="api_configuration">
+                        <field name="antsroute_api_key"/>
+                        <field name="antsroute_type"/>
+                        <field name="antsroute_destination"/>
+                    </group>
+                    <group colspan="2" string="Planning" name="planning">
+                        <group>
+                            <field name="antsroute_average_loading_time"/>
+                        </group>
+                        <group>
+                            <field name="antsroute_average_customer_unloading_time"/>
+                        </group>
+                        <group string="Delivery days" name="delivery_days">
+                            <group>
+                                <field name="antsroute_delivery_monday"/>
+                                <field name="antsroute_delivery_tuesday"/>
+                                <field name="antsroute_delivery_wednesday"/>
+                                <field name="antsroute_delivery_thrusday"/>
+                                <field name="antsroute_delivery_friday"/>
+                                <field name="antsroute_delivery_saturday"/>
+                                <field name="antsroute_delivery_sunday"/>
+                            </group>
+                        </group>
+                        <group string="Default openning hours" name="default_hours">
+                            <group>
+                                <field name="antsroute_warehouse_open" widget="float_time"/>
+                                <field name="antsroute_customer_delivery_open" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="antsroute_warehouse_close" widget="float_time"/>
+                                <field name="antsroute_customer_delivery_close" widget="float_time"/>
+                            </group>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

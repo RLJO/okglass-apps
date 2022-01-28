@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_warehouse_antsroute" model="ir.ui.view">
+        <field name="name">stock.warehouse.antsroute</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <group string="Antsroute Default openning hours" name="default_hours">
+                    <field name="antsroute_warehouse_open" widget="float_time"/>
+                    <field name="antsroute_warehouse_close" widget="float_time"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

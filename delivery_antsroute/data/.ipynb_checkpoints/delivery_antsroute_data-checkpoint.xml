@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_product_delivery_antsroute_carrier_1" model="product.product">
+      <field name="name">Carrier 01</field>
+      <field name="default_code">Carrier_001</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+    
+    <record id="delivery_antsroute_carrier_1" model="delivery.carrier">
+        <field name="name">Carrier 01</field>
+        <field name="integration_level">rate_and_ship</field>
+        <field name="use_antsroute" eval="True"/>
+        <field name="product_id" eval="ref('product_product_delivery_antsroute_carrier_1')"/>
+    </record>
+    
+    <record forcecreate="True" id="ir_cron_antsroute_check_delivery" model="ir.cron">
+        <field name="name">Antsroute - Check delivery infos</field>
+        <field eval="True" name="active" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_antsroute_check_picking_state()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall" />
+      </record>
+</odoo>

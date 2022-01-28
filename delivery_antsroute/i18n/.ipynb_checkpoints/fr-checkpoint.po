@@ -1,0 +1,455 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_antsroute
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-16 08:32+0000\n"
+"PO-Revision-Date: 2021-03-16 08:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Antsroute did not answer, please try again later"
+msgstr "API Antsroute : Antsroute n'a pas répondu, merci d'essayer plus tard"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Check if request exists : ERROR [%s] %s"
+msgstr "API Antsroute : Vérification existance de la demande : ERREUR [%s] %s"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid ""
+"API Antsroute : Check if request exists : Pickup request does not exist"
+msgstr ""
+"API Antsroute : Vérification existance de la demande : La demande "
+"d'enlèvement n'existe pas."
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Check if request exists : Pickup request exists"
+msgstr ""
+"API Antsroute : Vérification existance de la demande : La demande "
+"d'enlèvement existe"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Check if request exists : Unexpected error"
+msgstr ""
+"API Antsroute : Vérification existance de la demande : Erreur non identifiée"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Delete request : ERROR [%s] %s"
+msgstr "API Antsroute : Suppression demande : ERREUR [%s] %s"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Delete request : Pickup deleted with success"
+msgstr "API Antsroute : Suppression demande : Suppresion réalisée avec succès"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid ""
+"API Antsroute : Delete request : Pickup not deleted (pickup not found in "
+"Antsroute)"
+msgstr ""
+"API Antsroute : Suppression demande : Echec de la suppresion (demande "
+"inexistant dans Antsroute)"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Delete request : Unexpected error"
+msgstr "API Antsroute : Suppression demande : Erreur non identifiée"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : ERROR [%s] %s"
+msgstr "API Antsroute : ERREUR [%s] %s"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : No API Key defined on delivery carrier %s."
+msgstr "API Antsroute : Clé d'API manquante pour le transporteur %s."
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : No destination defined on delivery carrier %s."
+msgstr "API Antsroute : Destination non définie pour le transporteur %s."
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : Pickup created successfully"
+msgstr "API Antsroute : Demande créée avec succès"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : The customer has no address please add one."
+msgstr "API Antsroute : Le client n'a pas d'adresse, merci de la préciser."
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : The customer must have a name."
+msgstr ""
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/delivery_carrier.py:0
+#, python-format
+msgid "API Antsroute : The warehouse has no address please add one."
+msgstr "API Antsroute : Le client doit avoir un nom."
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_delivery_carrier_form
+msgid "API Configuration"
+msgstr "Configuration API"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_delivery_carrier_form
+msgid "Antsroute"
+msgstr ""
+
+#. module: delivery_antsroute
+#: model:ir.actions.server,name:delivery_antsroute.ir_cron_antsroute_check_delivery_ir_actions_server
+#: model:ir.cron,cron_name:delivery_antsroute.ir_cron_antsroute_check_delivery
+#: model:ir.cron,name:delivery_antsroute.ir_cron_antsroute_check_delivery
+msgid "Antsroute - Check delivery infos"
+msgstr "Antsroute - Mise à jour des informations de livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_api_key
+msgid "Antsroute API Key"
+msgstr "Clé API Antsroute"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.view_stock_warehouse_antsroute
+msgid "Antsroute Default openning hours"
+msgstr "Horaires d'ouverture de l'entrepôt"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_type
+msgid "Antsroute Mode"
+msgstr "Mode Antsroute"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_stock_picking_form
+msgid "Antsroute informations"
+msgstr "Informations Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_average_customer_unloading_time
+msgid "Average customer unloading time in minutes"
+msgstr "Durée moyenne de déchargement chez le client (en minutes)"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_average_loading_time
+msgid "Average loading time in minutes"
+msgstr "Durée moyenne de chargement à l'entrepot (en minutes)"
+
+#. module: delivery_antsroute
+#: model:delivery.carrier,name:delivery_antsroute.delivery_antsroute_carrier_1
+#: model:product.product,name:delivery_antsroute.product_product_delivery_antsroute_carrier_1
+#: model:product.template,name:delivery_antsroute.product_product_delivery_antsroute_carrier_1_product_template
+msgid "Carrier 01"
+msgstr ""
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_customer_delivery_close
+msgid "Customer default delivery end"
+msgstr "Fin plage horaire de livraison client"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_customer_delivery_open
+msgid "Customer default delivery start"
+msgstr "Début plage horaire de livraison client"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_delivery_carrier_form
+msgid "Default openning hours"
+msgstr "Heures d'ouverture par défaut"
+
+#. module: delivery_antsroute
+#: model:ir.model,name:delivery_antsroute.model_choose_delivery_carrier
+msgid "Delivery Carrier Selection Wizard"
+msgstr "Assistant de sélection du transporteur"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_barcodes
+msgid "Delivery barcodes"
+msgstr "Informations de livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_comment
+msgid "Delivery comment"
+msgstr "Commentaire livraison Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_date
+msgid "Delivery date"
+msgstr "Date de livraison Antsroute"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_delivery_carrier_form
+msgid "Delivery days"
+msgstr "Jours de livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_nb_delivery_photo
+msgid "Delivery photo number"
+msgstr "Nombre de photos de la livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_signature
+msgid "Delivery signature"
+msgstr "Signature livraison Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_status
+msgid "Delivery status"
+msgstr "Statut de livraison Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_choose_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_driver
+msgid "Driver name"
+msgstr "Chauffeur Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_friday
+msgid "Friday"
+msgstr "Vendredi"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_stock_picking_form
+msgid "Get delivery information"
+msgstr "Mise à jour informations de livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_choose_delivery_carrier__id
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__id
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__id
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_warehouse__id
+msgid "ID"
+msgstr ""
+
+#. module: delivery_antsroute
+#: model:ir.model.fields.selection,name:delivery_antsroute.selection__delivery_carrier__antsroute_destination__in_organise
+msgid "In organize"
+msgstr "Organiser"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields.selection,name:delivery_antsroute.selection__delivery_carrier__antsroute_destination__in_bucket
+msgid "In the bucket"
+msgstr "Panier"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_choose_delivery_carrier____last_update
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier____last_update
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking____last_update
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_warehouse____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_monday
+msgid "Monday"
+msgstr "Lundi"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/stock_picking-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/stock_picking-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/stock_picking.py:0
+#: code:addons/delivery_antsroute/models/stock_picking.py:0
+#, python-format
+msgid "No API to call for this carrier."
+msgstr "Pas d'API pour ce transporteur."
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_destination
+msgid "Order destination in Antsroute"
+msgstr "Destination de la demande dans Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_order_price
+msgid "Order price"
+msgstr "Montant commande"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields.selection,name:delivery_antsroute.selection__delivery_carrier__antsroute_type__delivery
+msgid "Pick-up delivery activated"
+msgstr "Pick-up delivery activé"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields.selection,name:delivery_antsroute.selection__delivery_carrier__antsroute_type__service
+msgid "Pick-up delivery not activated"
+msgstr "Pick-up delivery non activé"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_delivery_carrier_form
+msgid "Planning"
+msgstr ""
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/stock_picking-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/stock_picking-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/stock_picking.py:0
+#: code:addons/delivery_antsroute/models/stock_picking.py:0
+#, python-format
+msgid "Please define a carrier for this order first."
+msgstr "Merci de définir un transporteur pour cette commande."
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_product_description
+msgid "Product description"
+msgstr "Description produits"
+
+#. module: delivery_antsroute
+#: model_terms:ir.ui.view,arch_db:delivery_antsroute.antsroute_view_stock_picking_form
+msgid "Request carrier pickup"
+msgstr "Demander l'enlèvement"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_saturday
+msgid "Saturday"
+msgstr "Samedi"
+
+#. module: delivery_antsroute
+#: model:ir.model,name:delivery_antsroute.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Méthodes d'expédition"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_shipping_qty
+msgid "Shipping quantity"
+msgstr "Quantité à livrer"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_shipping_value
+msgid "Shipping value"
+msgstr "Montant expédié"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_sunday
+msgid "Sunday"
+msgstr "Dimanche"
+
+#. module: delivery_antsroute
+#: code:addons/delivery_antsroute/models/.ipynb_checkpoints/stock_picking-checkpoint.py:0
+#: code:addons/delivery_antsroute/models/stock_picking.py:0
+#: code:addons/delivery_antsroute/wizard/.ipynb_checkpoints/choose_delivery_carrier-checkpoint.py:0
+#: code:addons/delivery_antsroute/wizard/choose_delivery_carrier.py:0
+#, python-format
+msgid "The selected delivery day is not authorized for this carrier"
+msgstr "Jour de livraison non autorisé pour cette méthode de livraison"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_thrusday
+msgid "Thursday"
+msgstr "Jeudi"
+
+#. module: delivery_antsroute
+#: model:ir.model,name:delivery_antsroute.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_tuesday
+msgid "Tuesday"
+msgstr "Mardi"
+
+#. module: delivery_antsroute
+#: model:product.product,uom_name:delivery_antsroute.product_product_delivery_antsroute_carrier_1
+#: model:product.template,uom_name:delivery_antsroute.product_product_delivery_antsroute_carrier_1_product_template
+msgid "Units"
+msgstr "Unité"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__use_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__use_antsroute
+msgid "Use Antsroute"
+msgstr "Utiliser Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_picking__antsroute_delivery_vehicle_plate
+msgid "Vehicle plate"
+msgstr "Immatriculation du véhicule Antsroute"
+
+#. module: delivery_antsroute
+#: model:ir.model,name:delivery_antsroute.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_warehouse_close
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_warehouse__antsroute_warehouse_close
+msgid "Warehouse default closing"
+msgstr "Fin plage horaire de l'entrepôt"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_warehouse_open
+#: model:ir.model.fields,field_description:delivery_antsroute.field_stock_warehouse__antsroute_warehouse_open
+msgid "Warehouse default opening"
+msgstr "Début plage horaire de l'entrepôt"
+
+#. module: delivery_antsroute
+#: model:ir.model.fields,field_description:delivery_antsroute.field_delivery_carrier__antsroute_delivery_wednesday
+msgid "Wednesday"
+msgstr "Mercredi"
