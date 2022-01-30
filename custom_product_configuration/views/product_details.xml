@@ -94,7 +94,7 @@
                                             combination does not exist.
                                         </p>
                                         <a role="button" id="add_to_cart"
-                                           class="btn btn-primary btn-lg mt16 js_check_product a-submit d-block d-sm-inline-block"
+                                           class="d-none btn btn-primary btn-lg mt16 js_check_product a-submit"
                                            href="#">
                                             <i class="fa fa-shopping-cart"/>
                                             Add to Cart
@@ -851,7 +851,9 @@
                                                         </tr>
                                                     </tfoot>
                                                 </table>
-                                                <!--                                                pdf Dateien mit max. 2.5mb-->
+                                                <p class="mb0">Skizze hochladen :</p>
+                                                <input type="file" title="Upload..." style="padding: 3px 1px 1px 3px;width: 50%;" name="sketch" class="form-control" accept="application/pdf"/>
+                                                pdf Dateien mit max. 2.5mb
                                             </div>
                                         </div>
                                     </div>
