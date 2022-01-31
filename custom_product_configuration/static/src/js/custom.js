@@ -112,6 +112,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_1').addClass('active');
+        $('#format').val('rectangle')
         price = priceCalculation(1)
         if(price){
             $('#list_price_span').html(price)
@@ -128,6 +129,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_2').addClass('active');
+        $('#format').val('ellipse')
         price = priceCalculation(2)
         if(price){
             $('#list_price_span').html(price)
@@ -144,6 +146,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_3').addClass('active');
+        $('#format').val('triangle')
     });
 
     $(document).on('click', '.format_shape_4', function(){
@@ -156,6 +159,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_4').addClass('active');
+        $('#format').val('spec_rectangle')
         price = priceCalculation(4)
         if(price){
             $('#list_price_span').html(price)
@@ -172,6 +176,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_5').addClass('active');
+        $('#format').val('parallelogram')
     });
 
     $(document).on('click', '.format_shape_6', function(){
@@ -184,6 +189,7 @@ $(document).ready(function(){
         $('.f_shape_7').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_6').addClass('active');
+        $('#format').val('trapezium')
     });
 
     $(document).on('click', '.format_shape_7', function(){
@@ -196,6 +202,7 @@ $(document).ready(function(){
         $('.f_shape_6').hide();
         $('.format_img').removeClass('active');
         $('.format_shape_7').addClass('active');
+        $('#format').val('cropped_rectangle')
     });
 
     $(document).on('click', '.right_side', function(){
@@ -241,6 +248,20 @@ $(document).ready(function(){
             has_submit_address_clicked = true;
             e.preventDefault();
             var cart_description = 'Product Desciption here....'
+            console.log("==================cart_description===================",cart_description)
+            var values = {};
+            var other_expenses_ids = [];
+
+            $('#grant_other_expenses tbody tr').each(function(){
+                var grant_other_expenses = {}
+                grant_other_expenses['num_1'] = $(this).find('td input[name="num_1"]').val();
+                grant_other_expenses['num_2'] = $(this).find('td input[name="num_2"]').val();
+                grant_other_expenses['num_3'] = $(this).find('td input[name="num_3"]').val();
+                other_expenses_ids.push(grant_other_expenses);
+            });
+
+            values['other_expenses_ids'] = other_expenses_ids;
+            $('input[name="form_data"]').val(JSON.stringify(values));
             $('input[name="backend_details"]').val(JSON.stringify(cart_description));
             $(this).submit();
         }

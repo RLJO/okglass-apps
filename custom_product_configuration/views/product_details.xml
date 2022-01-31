@@ -151,10 +151,12 @@
                     </div>
 
                     <!-- PRODUCT CONFIGURATION -->
-                    <form id="cart_form" action="/shop/cart/update" method="post">
+                    <form id="cart_form" action="/shop/cart/update" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <input name="product_id" t-att-value="product.product_variant_id.id" type="hidden"/>
                         <input name="backend_details" type="hidden" value="Dharmesh"/>
+                        <input name="format" id="format" type="hidden" value="rectangle"/>
+                        <input type="hidden" name="form_data"/>
 
                         <div class="row pt16 mx-4">
                             <div class="col-md-12">
@@ -508,32 +510,31 @@
                                                     <div class="col-md-12 text-center">
                                                         <ul class="donate-now">
                                                             <li>
-                                                                <input type="radio" id="a4" name="amount"  checked="checked"/>
+                                                                <input type="radio" id="a4" name="special_size"  checked="checked" value="4"/>
                                                                 <label for="a4">4 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a5" name="amount"/>
+                                                                <input type="radio" id="a5" name="special_size" value="5"/>
                                                                 <label for="a5">5 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a6" name="amount"
-                                                                      />
+                                                                <input type="radio" id="a6" name="special_size" value="6"/>
                                                                 <label for="a6">6 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a8" name="amount"/>
+                                                                <input type="radio" id="a8" name="special_size" value="8"/>
                                                                 <label for="a8">8 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a10" name="amount"/>
+                                                                <input type="radio" id="a10" name="special_size" value="10"/>
                                                                 <label for="a10">10 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a12" name="amount"/>
+                                                                <input type="radio" id="a12" name="special_size" value="12"/>
                                                                 <label for="a12">12 mm</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" id="a15" name="amount"/>
+                                                                <input type="radio" id="a15" name="special_size" value="15"/>
                                                                 <label for="a15">15 mm</label>
                                                             </li>
 
@@ -569,8 +570,8 @@
                                                         </label>
 
                                                         <label for="imgbackground">
-                                                             <input type="radio" name="imgbackground" id="img1"
-                                                               class="imgbgchk" value="1" checked="checked"/>
+                                                             <input type="radio" name="kantenauswahl" id="img1"
+                                                               class="imgbgchk" value="gesaumt" checked="checked"/>
                                                             Gesäumt (entgratet)
                                                         </label>
                                                     </div>
@@ -588,8 +589,8 @@
                                                         </label>
 
                                                         <label for="imgbackground">
-                                                            <input type="radio" name="imgbackground" id="img2"
-                                                               class="imgbgchk" value="2"/>
+                                                            <input type="radio" name="kantenauswahl" id="img2"
+                                                               class="imgbgchk" value="geschliffen"/>
                                                             Matt geschliffen
                                                         </label>
                                                     </div>
@@ -607,8 +608,8 @@
                                                         </label>
 
                                                         <label for="imgbackground">
-                                                            <input type="radio" name="imgbackground" id="img3"
-                                                               class="imgbgchk" value="3"/>
+                                                            <input type="radio" name="kantenauswahl" id="img3"
+                                                               class="imgbgchk" value="poliert"/>
                                                             Hochglanz poliert
                                                         </label>
                                                     </div>
@@ -629,24 +630,24 @@
                                                 <div class="row border mx-3 my-3 py-3">
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="right_side" id="right_side_1"
-                                                               class="right_side" value="1" checked="checked"/>
+                                                            <input type="radio" name="top_left_ecken" id="right_side_1"
+                                                               class="right_side" value="option_1" checked="checked"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_1.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="right_side" id="right_side_2"
-                                                               class="right_side" value="2"/>
+                                                            <input type="radio" name="top_left_ecken" id="right_side_2"
+                                                               class="right_side" value="option_2"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_2.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="right_side" id="right_side_3"
-                                                               class="right_side" value="3"/>
+                                                            <input type="radio" name="top_left_ecken" id="right_side_3"
+                                                               class="right_side" value="option_3"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_3.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(-90deg);"/>
                                                         </label>
@@ -673,24 +674,24 @@
                                                 <div class="row border mx-3 my-3 py-3">
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="top_side" id="top_side_1"
-                                                               class="top_side" value="1" checked="checked"/>
+                                                            <input type="radio" name="top_right_ecken" id="top_side_1"
+                                                               class="top_side" value="option_1" checked="checked"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_1.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="top_side" id="top_side_2"
-                                                               class="top_side" value="2"/>
+                                                            <input type="radio" name="top_right_ecken" id="top_side_2"
+                                                               class="top_side" value="option_2"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_2.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="top_side" id="top_side_3"
-                                                               class="top_side" value="3"/>
+                                                            <input type="radio" name="top_right_ecken" id="top_side_3"
+                                                               class="top_side" value="option_3"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_3.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(0deg);"/>
                                                         </label>
@@ -717,24 +718,24 @@
                                                  <div class="row border mx-3 my-3 py-3">
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="left_side" id="left_side_1"
-                                                               class="left_side" value="1" checked="checked"/>
+                                                            <input type="radio" name="bottom_right_ecken" id="left_side_1"
+                                                               class="left_side" value="option_1" checked="checked"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_1.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="left_side" id="left_side_2"
-                                                               class="left_side" value="2" />
+                                                            <input type="radio" name="bottom_right_ecken" id="left_side_2"
+                                                               class="left_side" value="option_2" />
                                                             <img src="/custom_product_configuration/static/src/img/cornar_2.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="left_side" id="left_side_3"
-                                                               class="left_side" value="3"/>
+                                                            <input type="radio" name="bottom_right_ecken" id="left_side_3"
+                                                               class="left_side" value="option_3"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_3.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(90deg);"/>
                                                         </label>
@@ -761,24 +762,24 @@
                                                  <div class="row border mx-3 my-3 py-3">
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="bottom_side" id="bottom_side_1"
-                                                               class="bottom_side" value="1" checked="checked"/>
+                                                            <input type="radio" name="bottom_left_ecken" id="bottom_side_1"
+                                                               class="bottom_side" value="option_1" checked="checked"/>
                                                             <img src="/custom_product_configuration/static/src/img/cornar_1.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="bottom_side" id="bottom_side_2"
-                                                               class="bottom_side" value="2" />
+                                                            <input type="radio" name="bottom_left_ecken" id="bottom_side_2"
+                                                               class="bottom_side" value="option_2" />
                                                             <img src="/custom_product_configuration/static/src/img/cornar_2.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
                                                         </label>
                                                     </div>
                                                     <div class='col-md-2 text-center dome_img'>
                                                         <label for="img1">
-                                                            <input type="radio" name="bottom_side" id="bottom_side_3"
-                                                               class="bottom_side" value="3" />
+                                                            <input type="radio" name="bottom_left_ecken" id="bottom_side_3"
+                                                               class="bottom_side" value="option_3" />
                                                             <img src="/custom_product_configuration/static/src/img/cornar_3.png"
                                                                  class="img img-responsive " style="height:70px;transform: rotate(180deg);"/>
                                                         </label>

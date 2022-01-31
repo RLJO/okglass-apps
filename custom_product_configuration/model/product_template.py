@@ -1,4 +1,9 @@
-from odoo import models, fields, api
+import logging
+from odoo import models, fields, api, _
+from odoo.http import request
+from odoo.exceptions import UserError, ValidationError
+
+_logger = logging.getLogger(__name__)
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -29,6 +34,15 @@ class ProductTemplate(models.Model):
 
     is_cropped_rectangle_bool = fields.Boolean('Active Cropped Rectangle')
     is_cropped_rectangle_img = fields.Binary('Cropped Rectangle Image')
+
+
+class SketchSketch(models.Model):
+    _name = 'sketch.sketch'
+
+    num_1 = fields.Char("Durchmesser (mm)")
+    num_2 = fields.Char("Abstand von links (mm)")
+    num_3 = fields.Char("Abstand von oben (mm)")
+    sale_order_line_id = fields.Many2one('sale.order.line')
 
 
 class SizeSize(models.Model):
@@ -146,6 +160,16 @@ class SaleOrder(models.Model):
             if kwargs.get('backend_details'):
                 values.update({
                     'backend_details': kwargs.get('backend_details') if kwargs.get('backend_details') else '',
+                    'format': kwargs.get('format') if kwargs.get('format') else '',
+                    'special_size': kwargs.get('special_size') if kwargs.get('special_size') else '',
+                    'kantenauswahl': kwargs.get('kantenauswahl') if kwargs.get('kantenauswahl') else '',
+                    'top_left_ecken': kwargs.get('top_left_ecken') if kwargs.get('top_left_ecken') else '',
+                    'top_right_ecken': kwargs.get('top_right_ecken') if kwargs.get('top_right_ecken') else '',
+                    'bottom_right_ecken': kwargs.get('bottom_right_ecken') if kwargs.get('bottom_right_ecken') else '',
+                    'bottom_left_ecken': kwargs.get('bottom_left_ecken') if kwargs.get('bottom_left_ecken') else '',
+                    'sketch': kwargs.get('sketch') if kwargs.get('sketch') else '',
+                    'sketch_name': kwargs.get('sketch_name') if kwargs.get('sketch_name') else '',
+                    'sketch_ids': kwargs.get('sketch_ids') if kwargs.get('sketch_ids') else '',
                     'name': kwargs.get('backend_details') if kwargs.get('backend_details') else '',
                     'price_unit':200,
                 })
@@ -227,14 +251,38 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     backend_details = fields.Char(string="Description", required=False)
+    format = fields.Selection([('rectangle','Rectangle'),('ellipse','Ellipse'),('triangle','Triangle'),
+                               ('spec_rectangle','Spec Rectangle'),('parallelogram','Parallelogram'),('trapezium','Trapezium'),
+                               ('cropped_rectangle', 'Cropped Rectangle'), ],string="Format", required=False)
+    special_size = fields.Selection([('4', '4 mm'), ('5', '5 mm'), ('6', '6 mm'),
+                               ('8', '8 mm'), ('10', '10 mm'),
+                               ('12', '12 mm'),
+                               ('15', '15 mm'), ], string="Special Size", required=False)
+    kantenauswahl = fields.Selection([('gesaumt', 'Gesäumt'), ('geschliffen', 'Matt geschliffen'), ('poliert', 'Hochglanz poliert'),
+                               ], string="Kantenauswahl", required=False)
+    top_left_ecken = fields.Selection(
+        [('option_1', 'Option 1'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
+         ], string="Top Left Ecken", required=False)
+    top_right_ecken = fields.Selection(
+        [('option_1', 'Option 1'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
+         ], string="Top Right Ecken", required=False)
+    bottom_right_ecken = fields.Selection(
+        [('option_1', 'Option 1'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
+         ], string="Bottom Right Ecken", required=False)
+    bottom_left_ecken = fields.Selection(
+            [('option_1', 'Option 3'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
+         ], string="Bottom Left Ecken", required=False)
+    sketch = fields.Binary(string="Skizze hochladen")
+    sketch_name = fields.Char(string="Sketch Name")
+    sketch_ids = fields.One2many('sketch.sketch', 'sale_order_line_id', string="Bohrungen")
 
-    def get_sale_order_line_multiline_description_sale(self, product):
-        description = super(SaleOrderLine, self).get_sale_order_line_multiline_description_sale(product)
-        if self.product_id and description:
-            description = self.product_id.name
-        if self.backend_details:
-            self.backend_details = self.backend_details.replace(',', '\n')
-            description += "\n" + self.backend_details
-        print("===========get_sale_order_line_multiline_description_sale==========",description)
-        return description
+    # def get_sale_order_line_multiline_description_sale(self, product):
+    #     description = super(SaleOrderLine, self).get_sale_order_line_multiline_description_sale(product)
+    #     if self.product_id and description:
+    #         description = self.product_id.name
+    #     if self.backend_details:
+    #         self.backend_details = self.backend_details.replace(',', '\n')
+    #         description += "\n" + self.backend_details
+    #     print("===========get_sale_order_line_multiline_description_sale==========",description)
+    #     return description
 

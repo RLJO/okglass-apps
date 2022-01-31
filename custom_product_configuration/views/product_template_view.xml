@@ -77,4 +77,30 @@
         </field>
     </record>
 
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/form/group/group/field[@name='analytic_tag_ids']" position="after">
+                <field name="format"/>
+                <field name="special_size"/>
+                <field name="kantenauswahl"/>
+                <field name="top_left_ecken"/>
+                <field name="top_right_ecken"/>
+                <field name="bottom_right_ecken"/>
+                <field name="bottom_left_ecken"/>
+                <field name="sketch"  filename="sketch_name"/>
+                <field name="sketch_name" invisible="1"/>
+                <field name="sketch_ids">
+                    <tree editable="bottom">
+                        <field name="num_1"/>
+                        <field name="num_2"/>
+                        <field name="num_3"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
