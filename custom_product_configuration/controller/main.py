@@ -29,12 +29,15 @@ class WebsiteSale(WebsiteSale):
         backend_details = format = special_size = kantenauswahl = ''
         top_left_ecken = top_right_ecken = bottom_right_ecken = bottom_left_ecken = ''
         sketch = sketch_name = ''
+        width_input = width_input_1 = width_input_2 = height_input = height_input_1 =''
 
         fmt_data = json.loads(kw.get('form_data'))
 
-        sketch_ids = []
-        for job in fmt_data.get('other_expenses_ids'):
-            sketch_ids.append((0, 0, job))
+        sketch_ids = ''
+        if fmt_data.get('other_expenses_ids'):
+            sketch_ids = []
+            for job in fmt_data.get('other_expenses_ids'):
+                sketch_ids.append((0, 0, job))
 
         if kw.get('backend_details'):
             backend_details = json.loads(kw.get('backend_details'))
@@ -60,6 +63,21 @@ class WebsiteSale(WebsiteSale):
         if kw.get('bottom_left_ecken'):
             bottom_left_ecken = kw.get('bottom_left_ecken')
 
+        if kw.get('format_width_input'):
+            width_input = kw.get('format_width_input')
+
+        if kw.get('format_width_input_1'):
+            width_input_1 = kw.get('format_width_input_1')
+
+        if kw.get('format_width_input_2'):
+            width_input_2 = kw.get('format_width_input_2')
+
+        if kw.get('format_height_input'):
+            height_input = kw.get('format_height_input')
+
+        if kw.get('format_height_input_1'):
+            height_input_1 = kw.get('format_height_input_1')
+
         if kw.get('sketch'):
             sketch = base64.b64encode(kw.get('sketch').read())
             sketch_name = kw.get('sketch').filename
@@ -77,6 +95,11 @@ class WebsiteSale(WebsiteSale):
             top_right_ecken=top_right_ecken,
             bottom_right_ecken=bottom_right_ecken,
             bottom_left_ecken=bottom_left_ecken,
+            width_input=width_input,
+            width_input_1=width_input_1,
+            width_input_2=width_input_2,
+            height_input=height_input,
+            height_input_1=height_input_1,
             sketch=sketch,
             sketch_name=sketch_name,
             sketch_ids=sketch_ids,

@@ -167,9 +167,14 @@ class SaleOrder(models.Model):
                     'top_right_ecken': kwargs.get('top_right_ecken') if kwargs.get('top_right_ecken') else '',
                     'bottom_right_ecken': kwargs.get('bottom_right_ecken') if kwargs.get('bottom_right_ecken') else '',
                     'bottom_left_ecken': kwargs.get('bottom_left_ecken') if kwargs.get('bottom_left_ecken') else '',
+                    'width_input': kwargs.get('width_input') if kwargs.get('width_input') else '',
+                    'width_input_1': kwargs.get('width_input_1') if kwargs.get('width_input_1') else '',
+                    'width_input_2': kwargs.get('width_input_2') if kwargs.get('width_input_2') else '',
+                    'height_input': kwargs.get('height_input') if kwargs.get('height_input') else '',
+                    'height_input_1': kwargs.get('height_input_1') if kwargs.get('height_input_1') else '',
                     'sketch': kwargs.get('sketch') if kwargs.get('sketch') else '',
                     'sketch_name': kwargs.get('sketch_name') if kwargs.get('sketch_name') else '',
-                    'sketch_ids': kwargs.get('sketch_ids') if kwargs.get('sketch_ids') else '',
+                    'sketch_ids': kwargs.get('sketch_ids') if kwargs.get('sketch_ids') else False,
                     'name': kwargs.get('backend_details') if kwargs.get('backend_details') else '',
                     'price_unit':200,
                 })
@@ -270,11 +275,17 @@ class SaleOrderLine(models.Model):
         [('option_1', 'Option 1'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
          ], string="Bottom Right Ecken", required=False)
     bottom_left_ecken = fields.Selection(
-            [('option_1', 'Option 3'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
+            [('option_1', 'Option 1'), ('option_2', 'Option 2'), ('option_3', 'Option 3'),
          ], string="Bottom Left Ecken", required=False)
     sketch = fields.Binary(string="Skizze hochladen")
     sketch_name = fields.Char(string="Sketch Name")
     sketch_ids = fields.One2many('sketch.sketch', 'sale_order_line_id', string="Bohrungen")
+
+    width_input = fields.Char(string="Width (mm)")
+    width_input_1 = fields.Char(string="Width 1 (mm)")
+    width_input_2 = fields.Char(string="Width 2 (mm)")
+    height_input = fields.Char(string="Height (mm)")
+    height_input_1 = fields.Char(string="Height 1 (mm)")
 
     # def get_sale_order_line_multiline_description_sale(self, product):
     #     description = super(SaleOrderLine, self).get_sale_order_line_multiline_description_sale(product)
