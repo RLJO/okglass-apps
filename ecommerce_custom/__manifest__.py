@@ -11,5 +11,6 @@
     'data': [
         'views/assets.xml',
         'views/home_template.xml',
+        'views/custom_snippets.xml',
     ],
 }

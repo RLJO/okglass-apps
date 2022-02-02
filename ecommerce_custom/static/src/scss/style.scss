@@ -1,3 +1,16 @@
+.main-menu__inner-item--parent>a:hover {
+    color: #fe8300;
+}
+.main-menu__inner-item--parent>a {
+    color: #505050;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 0;
+    display: block;
+}
+ul.main-menu__list a:hover {
+    text-decoration: none;
+}
 @media (max-width: 767px){
     #carousel-custom .owl-item img{
         height: 300px !important;
