@@ -1,5 +1,17 @@
 .main-menu__inner-item--parent>a:hover {
-    color: #fe8300;
+    color: #fe8300 !important;
+}
+.main-menu__inner-item--level3 a:before{
+    background: #fe8300 none repeat scroll 0 0 !important;
+    border-radius: 50% !important;
+    content: " " !important;
+    display: inline-block !important;
+    height: 8px !important;
+    left: 0 !important;
+    margin-right: 5px !important;
+    position: inherit !important;
+    top: 9px !important;
+    width: 8px !important;
 }
 .main-menu__inner-item--parent>a {
     color: #505050;
@@ -9,7 +21,7 @@
     display: block;
 }
 ul.main-menu__list a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 @media (max-width: 767px){
     #carousel-custom .owl-item img{
