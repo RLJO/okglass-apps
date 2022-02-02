@@ -42,11 +42,15 @@ $(document).ready(function(){
 
     function priceCalculation(shape) {
         var list_price = $('#list_price').val()
+        console.log("================priceCalculation============")
         if(shape == 1){
+            console.log("================priceCalculation=======1=====")
             var width_shape_1 = $('#width_shape_1').val()
             var height_shape_1 = $('#height_shape_1').val()
             if(width_shape_1 && height_shape_1 && list_price){
-                calculation = (((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)*parseInt(list_price))
+                var calculation = (((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)*parseInt(list_price))
+                var weight_shape_1 = ((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)
+                $('#weight_shape_1').val(weight_shape_1)
                 return calculation
             }
             else{
@@ -57,7 +61,22 @@ $(document).ready(function(){
             var width_shape_2 = $('#width_shape_2').val()
             var height_shape_2 = $('#height_shape_2').val()
             if(width_shape_2 && height_shape_2 && list_price){
-                calculation = (((parseInt(width_shape_2)*parseInt(height_shape_2))/1000000)*parseInt(list_price))
+                var calculation = (((parseInt(width_shape_2)*parseInt(height_shape_2))/1000000)*parseInt(list_price))
+                var weight_shape_2 = ((parseInt(width_shape_2)*parseInt(height_shape_2))/1000000)
+                $('#weight_shape_2').val(weight_shape_2)
+                return calculation
+            }
+            else{
+                return false
+            }
+        }
+         else if(shape == 3){
+            var width_shape_3 = $('#width_shape_3').val()
+            var height_shape_3 = $('#height_shape_3').val()
+            if(width_shape_3 && height_shape_3 && list_price){
+                var calculation = (((parseInt(width_shape_3)*parseInt(height_shape_3))/1000000)*parseInt(list_price))
+                var weight_shape_3 = ((parseInt(width_shape_3)*parseInt(height_shape_3))/1000000)
+                $('#weight_shape_3').val(weight_shape_3)
                 return calculation
             }
             else{
@@ -93,12 +112,48 @@ $(document).ready(function(){
         }
     })
 
+    $(document).on('change', '#width_shape_3,#height_shape_3', function(){
+        price = priceCalculation(3)
+        if(price){
+            $('#list_price_span').html(price)
+        }
+    })
+
     $(document).on('change', '#width_shape_4,#height_shape_4,#height1_shape_4', function(){
         price = priceCalculation(4)
         if(price){
             $('#list_price_span').html(price)
         }
     })
+
+    /* SET ALL INPUT VALUES */
+
+    $(document).on('change', '.width_input', function(){
+        var width_input =  $(this).val()
+        $('.width_input').val(width_input)
+    })
+
+    $(document).on('change', '.height_input', function(){
+        var height_input =  $(this).val()
+        $('.height_input').val(height_input)
+    })
+
+    $(document).on('change', '.height_input_1', function(){
+        var height_input_1 =  $(this).val()
+        $('.height_input_1').val(height_input_1)
+    })
+
+    $(document).on('change', '.width_input_1', function(){
+        var width_input_1 =  $(this).val()
+        $('.width_input_1').val(width_input_1)
+    })
+
+    $(document).on('change', '.width_input_2', function(){
+        var width_input_2 =  $(this).val()
+        $('.width_input_2').val(width_input_2)
+    })
+
+    /* END SET ALL INPUT VALUES */
 
 
 
@@ -147,6 +202,10 @@ $(document).ready(function(){
         $('.format_img').removeClass('active');
         $('.format_shape_3').addClass('active');
         $('#format').val('triangle')
+        price = priceCalculation(3)
+        if(price){
+            $('#list_price_span').html(price)
+        }
     });
 
     $(document).on('click', '.format_shape_4', function(){

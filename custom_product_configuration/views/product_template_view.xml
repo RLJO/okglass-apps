@@ -82,8 +82,18 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/form//field[@name='customer_lead']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//field[@name='order_line']/form/group/group/field[@name='analytic_tag_ids']" position="after">
                 <field name="format"/>
+
+                <field name="width_input"/>
+                <field name="height_input"/>
+                <field name="height_input_1" attrs="{'invisible':[('format','not in',['spec_rectangle','cropped_rectangle'])]}"/>
+                <field name="width_input_1" attrs="{'invisible':[('format','not in',['parallelogram','trapezium','cropped_rectangle'])]}"/>
+                <field name="width_input_2" attrs="{'invisible':[('format','not in',['trapezium'])]}"/>
+
                 <field name="special_size"/>
                 <field name="kantenauswahl"/>
                 <field name="top_left_ecken"/>
