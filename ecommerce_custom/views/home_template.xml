@@ -3,7 +3,7 @@
 
     <template id="home_template" name="Home Page">
         <t t-call="website.layout">
-            <section>
+            <section class="oe_structure">
                 <div class="owl-slider">
                     <div id="carousel-custom" class="owl-carousel">
                         <div class="item">
@@ -19,7 +19,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="oe_structure">
                 <div class="home-cta-bg mt-30   mb30 section-1568730399923" data-section-id="1568730399923"
                      data-section-type="text-section">
                     <div class="cta-overlay">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </section>
-            <section>
+            <section class="oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </section>
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -105,7 +105,7 @@
                     </div>
                 </div>
             </section>
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -140,7 +140,7 @@
                 </div>
             </section>
 
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -213,7 +213,7 @@
                     </div>
                 </div>
             </section>
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -287,7 +287,7 @@
                 </div>
             </section>
 
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -315,7 +315,7 @@
                 </div>
             </section>
 
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -356,7 +356,7 @@
                 </div>
             </section>
 
-            <section class="mt56 iframe_video">
+            <section class="mt56 iframe_video oe_structure">
                 <div data-section-id="1568730659676" data-section-type="video-section"
                      class="mb30   container video-section-1568730659676" data-videotype="youtube"
                      data-videodisplay="autoplay_banner">
@@ -379,7 +379,7 @@
                 </div>
             </section>
 
-            <section class="mt40 home-cta-new">
+            <section class="mt40 home-cta-new oe_structure">
                 <div class="cta-overlay">
                     <div class="container">
                         <div class="h_row_content h_row_3">
@@ -435,7 +435,7 @@
                 </div>
             </section>
 
-            <section class="mt40">
+            <section class="mt40 oe_structure">
                 <div class="home-cta-bg mt-30   mb30 section-1575314074620" data-section-id="1575314074620"
                      data-section-type="text-section">
                     <div class="cta-overlay">
@@ -465,7 +465,7 @@
                 </div>
             </section>
 
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -501,7 +501,7 @@
                     </div>
                 </div>
             </section>
-            <section class="mt56">
+            <section class="mt56 oe_structure">
                 <div class="container image_with_text_container image_with_text_container--right"
                      data-section-id="16296314648f7eab51" data-section-type="image-with-text">
                     <div class="h_row_content h_row_1 section-16296314648f7eab51">
@@ -538,7 +538,7 @@
                 </div>
             </section>
 
-            <section class="mt56 mb56">
+            <section class="mt56 mb56 oe_structure">
                 <div class="container" data-section-id="1576079402181" data-section-type="blog-section">
                     <div class="h_row_content">
                         <div class="clearfix">

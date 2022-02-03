@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--===============All Snippet List================== -->
+    <template id="ecommerce_custom" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="after">
+            <!--==== STRUCTURE SNIPPET ====-->
+            <!-- === Mega Menus Snippet === -->
+            <div class="o_panel_header">
+                Mega Menus
+            </div>
+            <div class="o_panel_body">
+                <!-- Mega Menus Style 1 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_1"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+                <!-- Mega Menus Style 2 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_2"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+                <!-- Mega Menus Style 3 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_3"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+                <!-- Mega Menus Style 4 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_4"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+                <!-- Mega Menus Style 5 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_5"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+                <!-- Mega Menus Style 6 -->
+                <t t-snippet="ecommerce_custom.megamenu_style_6"
+                   t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.png"/>
+            </div>
+        </xpath>
+        <!-- ========================= STRUCTURE SNIPPET ================== -->
+    </template>
+
+    <!--================= Mega Menus Style 1 =============================-->
+    <template id="megamenu_style_1" name="Style 1">
+        <section class="te_menu_style_1 container-fluid py-3 px-3">
+            <div class="row">
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 1
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 2
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 3
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 4
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 5
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--================= Mega Menus Style 2 =============================-->
+    <template id="megamenu_style_2" name="Style 2">
+        <section class="te_menu_style_2 container-fluid py-3 px-3">
+            <div class="row">
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 1
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 2
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 3
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 4
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 5
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--================= Mega Menus Style 3 =============================-->
+    <template id="megamenu_style_3" name="Style 3">
+        <section class="te_menu_style_3 container-fluid py-3 px-3">
+            <div class="row">
+                <div class="col-md-1"/>
+                <div class="col-md-4 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-6 pb8">
+                            <h5 class="text-black font-weight-bold pb16">
+                                Main Category 1
+                            </h5>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 1
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 2
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 3
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 4
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 5
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 6
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 7
+                                </h6>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6 pb8">
+                            <h5 class="text-black font-weight-bold pb16">
+                                Main Category 2
+                            </h5>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 1
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 2
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 3
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 4
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 5
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 6
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 7
+                                </h6>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6 pb8">
+                            <h5 class="text-black font-weight-bold pb16">
+                                Main Category 3
+                            </h5>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 1
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 2
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 3
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 4
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 5
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 6
+                                </h6>
+                            </a>
+                            <a href="#">
+                                <h6 class="text-black pb8">
+                                    Sub Category 7
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--================= Mega Menus Style 4 =============================-->
+    <template id="megamenu_style_4" name="Style 4">
+        <section class="te_menu_style_4 container-fluid py-3 px-3">
+            <div class="row">
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <h5 class="text-black font-weight-bold pt16">
+                        Main Category 1
+                    </h5>
+                    <a href="#">
+                        <h6 class="text-black pb8">
+                            Sub Category 1
+                        </h6>
+                    </a>
+                    <a href="#" class="btn bg-black pt8 pb8 btn-block text-uppercase">
+                        More
+                    </a>
+                </div>
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                </div>
+                <div class="col-md-2 col-6 pb8">
+                    <h5 class="text-black font-weight-bold pt16">
+                        Main Category 2
+                    </h5>
+                    <a href="#">
+                        <h6 class="text-black pb8">
+                            Sub Category 2
+                        </h6>
+                    </a>
+                    <a href="#" class="btn bg-black pt8 pb8 btn-block text-uppercase">
+                        More
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--================= Mega Menus Style 5 =============================-->
+    <template id="megamenu_style_5" name="Style 5">
+        <section class="te_menu_style_5 container-fluid py-3 px-3">
+            <div class="row pb16 ml-5 mr-5">
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 1
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 2
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 3
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 4
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 5
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 pb8 col-6">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="100%"/>
+                    <h6 class="text-black font-weight-bold pt16 pb8 text-uppercase">
+                        Main Category 6
+                    </h6>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 1
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 2
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 3
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 4
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 5
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 6
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 7
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 8
+                        </h6>
+                    </a>
+                    <a href="#">
+                        <h6 class="text-black icons">
+                            Sub category 9
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--================= Mega Menus Style 6 =============================-->
+    <template id="megamenu_style_6" name="Style 6">
+        <section class="te_menu_style_6 container-fluid py-3 px-3">
+            <div class="row pb8">
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 1
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 2
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 3
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 4
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 5
+                        </h6>
+                    </a>
+                </div>
+            </div>
+            <div class="row pb8">
+                <div class="col-md-1"/>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 6
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 7
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 8
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 9
+                        </h6>
+                    </a>
+                </div>
+                <div class="col-md-2 col-6 pb8 text-center">
+                    <img src="/ecommerce_custom/static/src/img/1.jpg" class="img" width="70%"/>
+                    <a href="#">
+                        <h6 class="text-black text-center font-weight-bold pb16 pt16">
+                            Category 10
+                        </h6>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
