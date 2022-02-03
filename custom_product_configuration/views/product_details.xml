@@ -168,9 +168,9 @@
                                              href="#collapseOne" aria-expanded="true">
                                             <a class="card-title">
                                                 <strong>Format</strong>
-                                                <input type="hidden" class="width_input" name="format_width_input" value="200"/>
-                                                <input type="hidden" class="height_input" name="format_height_input" value="300"/>
-                                                <input type="hidden" class="height_input_1" name="format_height_input_1" value="200"/>
+                                                <input type="hidden" class="width_input" name="format_width_input" value="500"/>
+                                                <input type="hidden" class="height_input" name="format_height_input" value="500"/>
+                                                <input type="hidden" class="height_input_1" name="format_height_input_1" value="500"/>
                                                 <input type="hidden" class="width_input_1" name="format_width_input_1" value="75"/>
                                                 <input type="hidden" class="width_input_2" name="format_width_input_2" value="75"/>
                                             </a>
@@ -227,7 +227,7 @@
                                                                 <input type="text" id="width_shape_1"
                                                                        class="form-control width_input shape_input"
                                                                        name="width_shape_1"
-                                                                       placeholder="mm" value="200"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
@@ -235,14 +235,22 @@
                                                                 <input type="text" id="height_shape_1"
                                                                        class="form-control height_input shape_input"
                                                                        name="height_shape_1"
-                                                                       placeholder="mm" value="300"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Weight (kg)
                                                                 </label>
                                                                 <input type="text"
                                                                        class="form-control weight_input shape_input bg-100" id="weight_shape_1"
-                                                                       name="weight_shape_1" placeholder="kg" value="0.06"
+                                                                       name="weight_shape_1" placeholder="kg" value="2.5"
+                                                                       style="width: 75%;" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label><span class="text-danger">*</span> Area <span>(m<sup>2</sup>)</span>
+                                                                </label>
+                                                                <input type="text"
+                                                                       class="form-control area_input shape_input bg-100" id="area_shape_1"
+                                                                       name="area_shape_1" placeholder="kg" value="0.25"
                                                                        style="width: 75%;" readonly="readonly"/>
                                                             </div>
                                                         </div>
@@ -283,14 +291,14 @@
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
                                                                        name="width_shape_2" id="width_shape_2"
-                                                                       placeholder="mm" value="200"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
                                                                        name="height_shape_2" id="height_shape_2"
-                                                                       placeholder="mm" value="300"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Weight (kg)
@@ -315,14 +323,14 @@
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
                                                                        name="width_shape_3" id="width_shape_3"
-                                                                       placeholder="mm" value="200"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
                                                                        name="height_shape_3" id="height_shape_3"
-                                                                       placeholder="mm" value="300"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Weight (kg)
@@ -347,21 +355,21 @@
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
                                                                        name="width_srshape_1" id="width_shape_4"
-                                                                       placeholder="mm" value="200"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
                                                                        name="height_srshape_1" id="height_shape_4"
-                                                                       placeholder="mm" value="300"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height 1 (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input_1 shape_input"
                                                                        name="height_srshape_2" id="height1_shape_4"
-                                                                       placeholder="mm" value="200"/>
+                                                                       placeholder="mm" value="500"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Weight (kg)
@@ -385,14 +393,14 @@
                                                                 <label><span class="text-danger">*</span>Width (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
-                                                                       name="width_pshape_1" value="200"
+                                                                       name="width_pshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
-                                                                       name="height_pshape_1" value="300"
+                                                                       name="height_pshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
@@ -424,14 +432,14 @@
                                                                 <label><span class="text-danger">*</span>Width (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
-                                                                       name="width_trshape_1" value="200"
+                                                                       name="width_trshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
-                                                                       name="height_trshape_1" value="300"
+                                                                       name="height_trshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
@@ -470,21 +478,21 @@
                                                                 <label><span class="text-danger">*</span>Width (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control width_input shape_input"
-                                                                       name="width_crshape_1" value="200"
+                                                                       name="width_crshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input shape_input"
-                                                                       name="height_crshape_1" value="300"
+                                                                       name="height_crshape_1" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <label><span class="text-danger">*</span>Height 1 (mm)
                                                                 </label>
                                                                 <input type="text" class="form-control height_input_1 shape_input"
-                                                                       name="height_crshape_2" value="200"
+                                                                       name="height_crshape_2" value="500"
                                                                        placeholder="mm"/>
                                                             </div>
                                                             <div class="col-md-2">

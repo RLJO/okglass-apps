@@ -49,8 +49,13 @@ $(document).ready(function(){
             var height_shape_1 = $('#height_shape_1').val()
             if(width_shape_1 && height_shape_1 && list_price){
                 var calculation = (((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)*parseInt(list_price))
-                var weight_shape_1 = ((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)
-                $('#weight_shape_1').val(weight_shape_1)
+                var theakness = $('input[name="special_size"]:checked').val();
+                console.log("================theakness============",theakness)
+                if(theakness){
+                    var weight_shape_1 = ((parseInt(width_shape_1) * parseInt(height_shape_1) * parseInt(theakness) * (2.5))/1000000)
+                    $('#weight_shape_1').val(weight_shape_1)
+                    $('#area_shape_1').val((parseInt(width_shape_1) * parseInt(height_shape_1))/1000000)
+                }
                 return calculation
             }
             else{
