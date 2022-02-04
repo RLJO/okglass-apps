@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_size_size,access_size_size,model_size_size,,1,1,1,1
 access_variant_details,access_variant_details,model_variant_details,,1,1,1,1
 access_sketch_sketch,access_sketch_sketch,model_sketch_sketch,,1,1,1,1
+access_glass_glass,access_glass_glass,model_glass_glass,,1,1,1,1

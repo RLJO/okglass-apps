@@ -13,6 +13,7 @@ class ProductTemplate(models.Model):
     description_2 = fields.Html("Description 2")
     size_table_ids = fields.One2many('size.size', 'size_table_id', string="Size Table")
     variant_detail_ids = fields.One2many('variant.details', 'variant_detail_id', string="Variant Detail Table")
+    glass_ids = fields.One2many('glass.glass', 'product_id', string="Thickness Price Details")
 
     is_rectangle_bool = fields.Boolean('Active Rectangle')
     is_rectangle_img = fields.Binary('Rectangle Image')
@@ -48,7 +49,6 @@ class SketchSketch(models.Model):
 class SizeSize(models.Model):
     _name = 'size.size'
 
-
     size_table_id = fields.Many2one('product.template')
     title = fields.Char("Title")
     description = fields.Char("Description")
@@ -57,10 +57,18 @@ class SizeSize(models.Model):
 class VariantDetails(models.Model):
     _name = 'variant.details'
 
-
     variant_detail_id = fields.Many2one('product.template')
     title = fields.Char("Title")
     description = fields.Char("Description")
+
+
+class GlassGlass(models.Model):
+    _name = 'glass.glass'
+
+    product_id = fields.Many2one('product.template')
+    thickness = fields.Char("Name")
+    thickness_size = fields.Integer("Thickness (mm)")
+    price = fields.Float("Price")
 
 
 class SaleOrder(models.Model):

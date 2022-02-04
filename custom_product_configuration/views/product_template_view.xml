@@ -24,6 +24,15 @@
                                 </tree>
                             </field>
                         </group>
+                         <group>
+                            <field name="glass_ids">
+                                <tree editable="bottom">
+                                    <field name="thickness"/>
+                                    <field name="thickness_size"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                        </group>
                     </group>
                     <group>
                         <group>

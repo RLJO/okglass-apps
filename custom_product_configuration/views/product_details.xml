@@ -522,6 +522,22 @@
                                                 <div class="row pb32">
                                                     <div class="col-md-12 text-center">
                                                         <ul class="donate-now">
+                                                            <t t-set="glass_count" t-value="1"/>
+                                                            <t t-foreach="product.glass_ids" t-as="glass">
+                                                                <li>
+                                                                    <input type="radio" t-attf-id="a#{glass_count}" class="special_size" name="special_size" t-att-price="glass.price"
+                                                                           t-att-value="glass.thickness_size" t-att-checked="glass_count==1"/>
+                                                                    <label t-attf-for="a#{glass_count}"><t t-esc="glass.thickness"/> </label>
+                                                                </li>
+                                                                <t t-set="glass_count" t-value="glass_count+1"/>
+                                                            </t>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!--
+                                                <div class="row pb32">
+                                                    <div class="col-md-12 text-center">
+                                                        <ul class="donate-now">
                                                             <li>
                                                                 <input type="radio" id="a4" name="special_size"  checked="checked" value="4"/>
                                                                 <label for="a4">4 mm</label>
@@ -550,11 +566,10 @@
                                                                 <input type="radio" id="a15" name="special_size" value="15"/>
                                                                 <label for="a15">15 mm</label>
                                                             </li>
-
                                                         </ul>
-
                                                     </div>
                                                 </div>
+                                                -->
 
                                             </div>
                                         </div>

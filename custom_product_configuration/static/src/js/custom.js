@@ -131,6 +131,14 @@ $(document).ready(function(){
         }
     })
 
+     $(document).on('change', '.special_size', function(){
+        console.log("==========special_size=======")
+        price = priceCalculation(1)
+        if(price){
+            $('#list_price_span').html(price)
+        }
+    })
+
     /* SET ALL INPUT VALUES */
 
     $(document).on('change', '.width_input', function(){
