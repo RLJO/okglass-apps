@@ -37,6 +37,7 @@ $(document).ready(function(){
         price = priceCalculation(1)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     }
 
@@ -47,6 +48,8 @@ $(document).ready(function(){
             console.log("================priceCalculation=======1=====")
             var width_shape_1 = $('#width_shape_1').val()
             var height_shape_1 = $('#height_shape_1').val()
+            var list_price = $('input[name="special_size"]:checked').attr('price');
+            console.log("================priceCalculation=======1===list_price=====NEW=============",list_price)
             if(width_shape_1 && height_shape_1 && list_price){
                 var calculation = (((parseInt(width_shape_1)*parseInt(height_shape_1))/1000000)*parseInt(list_price))
                 var theakness = $('input[name="special_size"]:checked').val();
@@ -107,6 +110,7 @@ $(document).ready(function(){
         price = priceCalculation(1)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     })
 
@@ -114,6 +118,7 @@ $(document).ready(function(){
         price = priceCalculation(2)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     })
 
@@ -121,6 +126,7 @@ $(document).ready(function(){
         price = priceCalculation(3)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     })
 
@@ -128,6 +134,7 @@ $(document).ready(function(){
         price = priceCalculation(4)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     })
 
@@ -136,6 +143,7 @@ $(document).ready(function(){
         price = priceCalculation(1)
         if(price){
             $('#list_price_span').html(price)
+            $('#price_unit').val(price)
         }
     })
 

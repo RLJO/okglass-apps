@@ -166,6 +166,7 @@ class SaleOrder(models.Model):
 
             # create the line
             if kwargs.get('backend_details'):
+                print("============FINEL PRICE==============",kwargs.get('price_unit'))
                 values.update({
                     'backend_details': kwargs.get('backend_details') if kwargs.get('backend_details') else '',
                     'format': kwargs.get('format') if kwargs.get('format') else '',
@@ -180,11 +181,12 @@ class SaleOrder(models.Model):
                     'width_input_2': kwargs.get('width_input_2') if kwargs.get('width_input_2') else '',
                     'height_input': kwargs.get('height_input') if kwargs.get('height_input') else '',
                     'height_input_1': kwargs.get('height_input_1') if kwargs.get('height_input_1') else '',
+                    # 'price_unit': int(kwargs.get('price_unit')) if kwargs.get('price_unit') else product.lst_price,
                     'sketch': kwargs.get('sketch') if kwargs.get('sketch') else '',
                     'sketch_name': kwargs.get('sketch_name') if kwargs.get('sketch_name') else '',
                     'sketch_ids': kwargs.get('sketch_ids') if kwargs.get('sketch_ids') else False,
                     'name': kwargs.get('backend_details') if kwargs.get('backend_details') else '',
-                    'price_unit':200,
+                    # 'price_unit':800,
                 })
             print("============values============", values)
             order_line = SaleOrderLineSudo.create(values)
@@ -237,9 +239,11 @@ class SaleOrder(models.Model):
                 self.company_id
             )
 
-            values.update({
-                'price_unit': 300,
-            })
+            if kwargs.get('backend_details'):
+                values.update({
+                    'price_unit': int(kwargs.get('price_unit')) if kwargs.get('price_unit') else product.lst_price,
+                    # 'price_unit': 300,
+                })
 
             order_line.write(values)
 

@@ -157,6 +157,7 @@
                         <input name="backend_details" type="hidden" value="Dharmesh"/>
                         <input name="format" id="format" type="hidden" value="rectangle"/>
                         <input type="hidden" name="form_data"/>
+                        <input type="hidden" name="price_unit" id="price_unit"/>
 
                         <div class="row pt16 mx-4">
                             <div class="col-md-12">
