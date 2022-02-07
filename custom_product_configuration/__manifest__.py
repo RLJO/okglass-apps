@@ -10,13 +10,15 @@
     'version': '12.0.1.0.2',
 
     'depends': [
-        'website_sale', 
+        'website_sale', 'purchase'
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/assets.xml',
         'views/product_details.xml',
         'views/product_template_view.xml',
+        'views/sale_order_view.xml',
+        'views/purchase_order_view.xml',
     ],
     'installable': True,
 }
