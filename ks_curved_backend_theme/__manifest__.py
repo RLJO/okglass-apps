@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Arc Backend Theme",
+    'name': "Arc Backend Theme 123",
     'summary': """
         Advanced Material Backend theme, Responsive Theme, fully functional theme, Flexible backend theme, lightweight backend theme, animated backend theme, Modern multipurpose theme, customizable backend theme, multi tab back theme, back end theme odoo.
     """,
