@@ -11,6 +11,9 @@
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="payment_date"/>
                 </xpath>
+                <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <attribute name="editable"/>
+                </xpath>
             </field>
         </record>
 

@@ -304,13 +304,33 @@ class SaleOrderLine(models.Model):
     height_input = fields.Char(string="Height (mm)")
     height_input_1 = fields.Char(string="Height 1 (mm)")
 
-    # def get_sale_order_line_multiline_description_sale(self, product):
-    #     description = super(SaleOrderLine, self).get_sale_order_line_multiline_description_sale(product)
-    #     if self.product_id and description:
-    #         description = self.product_id.name
-    #     if self.backend_details:
-    #         self.backend_details = self.backend_details.replace(',', '\n')
-    #         description += "\n" + self.backend_details
-    #     print("===========get_sale_order_line_multiline_description_sale==========",description)
-    #     return description
+    def get_sale_order_line_multiline_description_sale(self, product):
+        description = super(SaleOrderLine, self).get_sale_order_line_multiline_description_sale(product)
+        if self.format and self.special_size:
+            description = ''
+            if self.product_id:
+                description = description + self.product_id.name + '\n'
+            if self.format:
+                description = description + 'Format : ' + self.format + '\n'
+            if self.special_size:
+                description = description + 'Thickness : ' + self.special_size + '\n'
+            if self.width_input:
+                description = description + 'Width (mm) : ' + self.width_input + '\n'
+            if self.height_input:
+                description = description + 'Height (mm) : ' + self.height_input + '\n'
+            if self.kantenauswahl:
+                description = description + 'Kantenauswahl : ' + dict(self._fields['kantenauswahl'].selection).get(self.kantenauswahl) + '\n'
+            if self.top_left_ecken:
+                description = description + 'Top Left : ' + dict(self._fields['top_left_ecken'].selection).get(self.top_left_ecken) + '\n'
+            if self.top_right_ecken:
+                description = description + 'Top Right : ' + dict(self._fields['top_right_ecken'].selection).get(self.top_right_ecken) + '\n'
+            if self.bottom_right_ecken:
+                description = description + 'Bottom Right : ' + dict(self._fields['bottom_right_ecken'].selection).get(self.bottom_right_ecken) + '\n'
+            if self.bottom_left_ecken:
+                description = description + 'Bottom Left : ' + dict(self._fields['bottom_left_ecken'].selection).get(self.bottom_left_ecken) + '\n'
+        # if self.backend_details:
+        #     self.backend_details = self.backend_details.replace(',', '\n')
+        #     description += "\n" + self.backend_details
+        print("===========get_sale_order_line_multiline_description_sale==========",description)
+        return description
 
