@@ -17,6 +17,7 @@
                   <xpath expr="//sheet/group" position="replace">
                     <group>
                         <group>
+                             <field name="delivery_set" invisible="1"/>
                             <field name="partner_id" widget="res_partner_many2one"
                                    context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
                                    options="{&quot;always_reload&quot;: True}"/>
