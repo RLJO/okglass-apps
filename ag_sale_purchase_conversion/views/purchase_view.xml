@@ -10,6 +10,7 @@
                  <xpath expr="//sheet/group" position="replace">
                     <group>
                         <group>
+                            <field name="is_all_service" invisible="1"/>
                             <field name="is_shipped" invisible="1"/>
                             <field name="effective_date" invisible="1"/>
                             <field name="partner_id" widget="res_partner_many2one"
