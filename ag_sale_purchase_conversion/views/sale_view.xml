@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Sale Order Form View to Modify it -->
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/header/button[@name='action_confirm'][2]" position="replace">
+
+                    <button name="action_confirm" string="Confirm" class="oe_highlight" type="object"
+                            attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                </xpath>
+
+                  <xpath expr="//sheet/group" position="replace">
+                    <group>
+                        <group>
+                            <field name="partner_id" widget="res_partner_many2one"
+                                   context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                                   options="{&quot;always_reload&quot;: True}"/>
+                            <field name="partner_invoice_id" groups="sale.group_delivery_invoice_address"
+                                   context="{'default_type':'invoice'}" options="{&quot;always_reload&quot;: True}"/>
+                            <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address"
+                                   context="{'default_type':'delivery'}" options="{&quot;always_reload&quot;: True}"/>
+                        
+                            <field name="validity_date" invisible="1"
+                                   attrs="{'invisible': [('state', 'in', ['sale', 'done'])]}"/>
+                            <div class="o_td_label" groups="base.group_no_one"
+                                 attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}">
+                                <label for="date_order" string="Quotation Date"/>
+                            </div>
+                            <field name="date_order" nolabel="1" groups="base.group_no_one"
+                                   attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}"/>
+                            <div class="o_td_label" attrs="{'invisible': [('state', 'in', ['draft', 'sent'])]}">
+                                <label for="date_order" string="Order Date"/>
+                            </div>
+                            <field name="date_order"
+                                   attrs="{'required': [('state', 'in', ['sale', 'done'])], 'invisible': [('state', 'in', ['draft', 'sent'])]}"
+                                   nolabel="1"/>
+                            <field name="pricelist_id" groups="product.group_product_pricelist"
+                                   options="{'no_open':True,'no_create': True}"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="payment_term_id" options="{'no_open':True,'no_create': True}"/>
+                            <field name="vendor_id" widget="res_partner_many2one"
+                                   context="{'res_partner_search_mode': 'supplier', 'show_vat': True}"
+                                   placeholder="Name, TIN, Email, or Reference"
+                                   attrs="{'readonly': [('state', 'not in', ('draft', 'sent'))],'required': True}"
+                                   domain="[('supplier_rank','>=',1)]"/>
+                            <field name="purchase_order_id" readonly="1"/>
+
+                        </group>
+                    </group>
+                </xpath>
+
+                 <xpath expr="//field[@name='order_line']/tree/field[@name='sequence']" position="after">
+                     <field name="purchase_order_line_id" invisible="1"/>
+
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
