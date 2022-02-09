@@ -22,7 +22,7 @@
     'category': 'Sales, Purchase',
     'summary': "Create Purchase Order From Sales and Vice versa",
     'author': 'APPSGATE FZC LLC',
-    'depends': ['sale', 'purchase', 'account'],
+    'depends': ['sale', 'purchase', 'account', 'delivery'],
 
     'description': """ 
             Sales 
