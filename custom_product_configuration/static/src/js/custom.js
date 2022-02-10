@@ -9,14 +9,14 @@ function number_validation(){
 
 $(document).ready(function(){
 
-     //dynamic table for grant other expenses
+    //dynamic table for Bohrungen
     var grant_other_expenses_counter = 0;
     if($('#grant_other_expenses')){
         $("#addGrantOtherExpensesRow").on("click", function () {
             var newRow = $("<tr>");
             var cols = "";
 
-            cols += '<td><input type="number" class="form-control numericOnly" name="num_1" value="20"/></td>';
+            cols += '<td><input type="number" class="form-control numericOnly bohrungen_line" name="num_1" value="20"/></td>';
             cols += '<td><input type="number" class="form-control numericOnly" name="num_2" value="18"/></td>';
             cols += '<td><input type="number" class="form-control numericOnly" name="num_3" value="18"/></td>';
 
@@ -25,14 +25,31 @@ $(document).ready(function(){
             $("table#grant_other_expenses.order-list").append(newRow);
             grant_other_expenses_counter++;
             number_validation();
+            price = priceCalculation(1)
+            if(price){
+                $('#list_price_span').html(price)
+                $('#price_unit').val(price)
+            }
         });
     }
     $("table.order-list").on("click", ".ibtnGOEIDel", function (event) {
         $(this).closest("tr").remove();
-        grant_other_expenses_counter -= 1
+        price = priceCalculation(1)
+        if(price){
+            $('#list_price_span').html(price)
+            $('#price_unit').val(price)
+        }
     });
 
+    $(document).on('change', '.bohrungen_line', function(){
+        price = priceCalculation(1)
+        if(price){
+            $('#list_price_span').html(price)
+            $('#price_unit').val(price)
+        }
+    })
 
+    // Load time product cost calculation
     if($('#list_price').length){
         price = priceCalculation(1)
         if(price){
@@ -41,9 +58,28 @@ $(document).ready(function(){
         }
     }
 
+    // Main priceCalculation Function
     function priceCalculation(shape) {
         var list_price = $('#list_price').val()
-        console.log("================priceCalculation============")
+        console.log("================priceCalculation========priceCalculation=============",list_price)
+
+        bohrungen_price = 0
+        console.log("================bohrungen_price=====BEFORE========",bohrungen_price)
+        $('#grant_other_expenses tbody tr').each(function(){
+            hole_size = parseInt($(this).find('td input[name="num_1"]').val());
+            console.log("================hole_size===========",hole_size)
+            if(hole_size>0 && hole_size<=20){
+                bohrungen_price += 7
+            }
+            else if(hole_size>=21 && hole_size<=40){
+                bohrungen_price += 12
+            }
+            else if(hole_size>40){
+                bohrungen_price += 18
+            }
+        });
+        console.log("================bohrungen_price=====AFTER========",bohrungen_price)
+
         if(shape == 1){
             console.log("================priceCalculation=======1=====")
             var width_shape_1 = $('#width_shape_1').val()
@@ -59,7 +95,7 @@ $(document).ready(function(){
                     $('#weight_shape_1').val(weight_shape_1)
                     $('#area_shape_1').val((parseInt(width_shape_1) * parseInt(height_shape_1))/1000000)
                 }
-                return calculation
+                return calculation + bohrungen_price
             }
             else{
                 return false
@@ -72,20 +108,20 @@ $(document).ready(function(){
                 var calculation = (((parseInt(width_shape_2)*parseInt(height_shape_2))/1000000)*parseInt(list_price))
                 var weight_shape_2 = ((parseInt(width_shape_2)*parseInt(height_shape_2))/1000000)
                 $('#weight_shape_2').val(weight_shape_2)
-                return calculation
+                return calculation + bohrungen_price
             }
             else{
                 return false
             }
         }
-         else if(shape == 3){
+        else if(shape == 3){
             var width_shape_3 = $('#width_shape_3').val()
             var height_shape_3 = $('#height_shape_3').val()
             if(width_shape_3 && height_shape_3 && list_price){
                 var calculation = (((parseInt(width_shape_3)*parseInt(height_shape_3))/1000000)*parseInt(list_price))
                 var weight_shape_3 = ((parseInt(width_shape_3)*parseInt(height_shape_3))/1000000)
                 $('#weight_shape_3').val(weight_shape_3)
-                return calculation
+                return calculation + bohrungen_price
             }
             else{
                 return false
@@ -97,15 +133,15 @@ $(document).ready(function(){
             var height1_shape_4 = $('#height1_shape_4').val()
             if(width_shape_4 && height_shape_4 && height1_shape_4 && list_price){
                 calculation = (( ( ( (parseInt(width_shape_4)+parseInt(height_shape_4)) / 2) * parseInt(height1_shape_4) ) /1000000)*parseInt(list_price))
-                return calculation
+                return calculation + bohrungen_price
             }
             else{
                 return false
             }
         }
-
     }
 
+    // For Width & Height Dynamic Cost
     $(document).on('change', '#width_shape_1,#height_shape_1', function(){
         price = priceCalculation(1)
         if(price){
@@ -138,7 +174,8 @@ $(document).ready(function(){
         }
     })
 
-     $(document).on('change', '.special_size', function(){
+    // For Thickness Dynamic Cost
+    $(document).on('change', '.special_size', function(){
         console.log("==========special_size=======")
         price = priceCalculation(1)
         if(price){
@@ -148,36 +185,30 @@ $(document).ready(function(){
     })
 
     /* SET ALL INPUT VALUES */
-
     $(document).on('change', '.width_input', function(){
         var width_input =  $(this).val()
         $('.width_input').val(width_input)
     })
-
     $(document).on('change', '.height_input', function(){
         var height_input =  $(this).val()
         $('.height_input').val(height_input)
     })
-
     $(document).on('change', '.height_input_1', function(){
         var height_input_1 =  $(this).val()
         $('.height_input_1').val(height_input_1)
     })
-
     $(document).on('change', '.width_input_1', function(){
         var width_input_1 =  $(this).val()
         $('.width_input_1').val(width_input_1)
     })
-
     $(document).on('change', '.width_input_2', function(){
         var width_input_2 =  $(this).val()
         $('.width_input_2').val(width_input_2)
     })
-
     /* END SET ALL INPUT VALUES */
 
 
-
+    /* Start Shape Image As Tab */
     $(document).on('click', '.format_shape_1', function(){
         $('.f_shape_1').show();
         $('.f_shape_2').hide();
@@ -284,7 +315,9 @@ $(document).ready(function(){
         $('.format_shape_7').addClass('active');
         $('#format').val('cropped_rectangle')
     });
+    /* End Shape Image As Tab */
 
+    /* Start ALl Side Input Show */
     $(document).on('click', '.right_side', function(){
         var right_side_val = $(this).val()
         if(right_side_val == '2'){
@@ -320,8 +353,9 @@ $(document).ready(function(){
             $('.bottom_xy').addClass('d-none')
         }
     })
+    /* End ALl Side Input Show */
 
-     // Cart Submit Function
+     /* Cart Submit Function  */
     var has_submit_address_clicked = false;
     $("#cart_form").on('submit' ,function(e) {
         if (!has_submit_address_clicked){
